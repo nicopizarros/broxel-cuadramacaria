@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nicolás Pizarro · Global Equestrian Brand Ambassador · Broxel</title>
+<meta name="description" content="Propuesta de patrocinio: Nicolás Pizarro como Embajador Global de Marca para Broxel. Visibilidad en circuitos nacionales e internacionales, branding premium, contenido exclusivo y acceso a comunidad de alto nivel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================
+   BROXEL OFFICIAL BRAND TOKENS
+   Extracted from official logo SVG
+   Cyan: #00C1DE  ·  Navy: #003A5D
+   ============================================ */
+:root{
+  /* Brand palette · OFFICIAL BROXEL COLORS */
+  --broxel-cyan: #00C1DE;
+  --broxel-cyan-light: #4DD5E9;
+  --broxel-cyan-dark: #009BB5;
+  --broxel-navy: #003A5D;
+  --broxel-navy-dark: #002940;
+  --broxel-navy-darker: #001A2B;
+
+  /* Extended palette */
+  --bg-base: #001A2B;
+  --bg-elevated: #002940;
+  --bg-card: rgba(0, 58, 93, 0.4);
+  --bg-card-hover: rgba(0, 58, 93, 0.6);
+
+  --ink-100: #f5f9fc;
+  --ink-200: #d9e4ed;
+  --ink-300: #b3c4d3;
+  --ink-500: #6a8299;
+  --ink-700: #3d5a73;
+
+  --line-soft: rgba(255, 255, 255, 0.06);
+  --line-med: rgba(255, 255, 255, 0.12);
+  --line-accent: rgba(0, 193, 222, 0.4);
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-body: 'Inter Tight', system-ui, sans-serif;
+
+  /* Spacing */
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
+  --space-7: 6rem;
+
+  /* Layout */
+  --max-w: 1440px;
+  --gutter: clamp(1.5rem, 4vw, 4rem);
+}
+
+/* ============================================
+   RESET + BASE
+   ============================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{
+  font-family:var(--font-body);
+  background:var(--bg-base);
+  color:var(--ink-100);
+  line-height:1.5;
+  font-weight:300;
+  font-feature-settings:"ss01","cv11";
+  overflow-x:hidden;
+}
+img,svg{max-width:100%;display:block}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+
+/* Atmospheric background */
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  background-image:
+    radial-gradient(at 15% 20%, rgba(0, 193, 222, 0.06) 0%, transparent 50%),
+    radial-gradient(at 85% 80%, rgba(0, 193, 222, 0.04) 0%, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(0, 58, 93, 0.2) 0%, transparent 70%);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.site-header{
+  position:relative;
+  z-index:10;
+  padding:var(--space-3) var(--gutter);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--line-soft);
+  background:rgba(0, 26, 43, 0.6);
+  backdrop-filter:blur(20px);
+}
+.brand-mark{
+  display:flex;
+  align-items:center;
+  gap:var(--space-3);
+}
+.brand-mark__logo{
+  height:36px;
+  width:auto;
+}
+.brand-mark__divider{
+  height:36px;
+  width:1px;
+  background:var(--line-med);
+}
+.brand-mark__rider{
+  display:flex;
+  flex-direction:column;
+}
+.brand-mark__rider-name{
+  font-family:var(--font-display);
+  font-weight:500;
+  font-size:1.4rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--ink-100);
+  line-height:1;
+}
+.brand-mark__rider-title{
+  font-family:var(--font-body);
+  font-weight:300;
+  font-size:.68rem;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--broxel-cyan);
+  margin-top:.5rem;
+}
+.header-meta{
+  font-family:var(--font-body);
+  font-size:.68rem;
+  font-weight:400;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--ink-500);
+  text-align:right;
+  line-height:1.6;
+}
+.header-meta__year{
+  color:var(--broxel-cyan);
+  font-weight:500;
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero{
+  position:relative;
+  z-index:1;
+  padding:var(--space-5) var(--gutter) var(--space-6);
+  display:grid;
+  grid-template-columns:1.15fr 1fr;
+  gap:var(--space-6);
+  align-items:start;
+  max-width:var(--max-w);
+  margin:0 auto;
+}
+
+/* Carousel */
+.carousel{
+  position:relative;
+  border-radius:2px;
+  overflow:hidden;
+  background:var(--bg-elevated);
+  box-shadow:
+    0 40px 80px -20px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(0, 193, 222, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+.carousel__track{
+  position:relative;
+  aspect-ratio:4/5;
+  width:100%;
+  overflow:hidden;
+}
+.carousel__slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity 1.4s cubic-bezier(.4, 0, .2, 1);
+  background-size:cover;
+  background-position:center;
+  will-change:opacity;
+}
+.carousel__slide--active{opacity:1}
+.carousel__slide::after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(
+    to bottom,
+    transparent 35%,
+    rgba(0, 26, 43, 0.5) 75%,
+    rgba(0, 26, 43, 0.96) 100%
+  );
+}
+
+.carousel__quote{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:var(--space-4) var(--space-4) var(--space-5);
+  z-index:2;
+}
+.carousel__quote-mark{
+  font-family:var(--font-display);
+  font-size:3.5rem;
+  line-height:.4;
+  color:var(--broxel-cyan);
+  display:block;
+  margin-bottom:.8rem;
+}
+.carousel__quote-text{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-size:clamp(1.1rem, 1.6vw, 1.6rem);
+  line-height:1.3;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--ink-100);
+}
+.carousel__quote-text em{
+  font-style:italic;
+  font-weight:500;
+  color:var(--broxel-cyan);
+  letter-spacing:.04em;
+  text-transform:none;
+}
+
+.carousel__controls{
+  position:absolute;
+  bottom:var(--space-3);
+  right:var(--space-3);
+  display:flex;
+  gap:.4rem;
+  z-index:3;
+}
+.carousel__dot{
+  width:28px;
+  height:2px;
+  background:rgba(255, 255, 255, 0.2);
+  border:none;
+  padding:0;
+  cursor:pointer;
+  transition:background .3s ease;
+}
+.carousel__dot--active{background:var(--broxel-cyan)}
+.carousel__nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:44px;
+  height:44px;
+  background:rgba(0, 26, 43, 0.5);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255, 255, 255, 0.1);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--ink-100);
+  opacity:0;
+  transition:opacity .3s ease, background .3s ease;
+  z-index:3;
+}
+.carousel:hover .carousel__nav{opacity:1}
+.carousel__nav:hover{background:rgba(0, 193, 222, 0.25)}
+.carousel__nav--prev{left:var(--space-2)}
+.carousel__nav--next{right:var(--space-2)}
+
+/* Pillars */
+.pillars{
+  display:flex;
+  flex-direction:column;
+}
+.pillar{
+  padding:var(--space-4) 0;
+  border-bottom:1px solid var(--line-soft);
+  display:grid;
+  grid-template-columns:64px 1fr;
+  gap:var(--space-3);
+  align-items:start;
+}
+.pillar:first-child{padding-top:0}
+.pillar:last-child{border-bottom:none}
+.pillar__icon{
+  width:48px;
+  height:48px;
+  color:var(--broxel-cyan);
+  stroke-width:1.25;
+}
+.pillar__title{
+  font-family:var(--font-body);
+  font-weight:500;
+  font-size:.85rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--ink-100);
+  margin-bottom:.4rem;
+}
+.pillar__title-rule{
+  display:inline-block;
+  width:32px;
+  height:1px;
+  background:var(--broxel-cyan);
+  vertical-align:middle;
+  margin-left:.6rem;
+}
+.pillar__text{
+  font-family:var(--font-body);
+  font-weight:300;
+  font-size:.92rem;
+  line-height:1.55;
+  color:var(--ink-300);
+  margin-top:.7rem;
+}
+.pillar__text strong{
+  color:var(--broxel-cyan);
+  font-weight:500;
+}
+
+/* ============================================
+   AMBASSADOR TIERS  ·  Silver + Gold
+   ============================================ */
+.section{
+  position:relative;
+  z-index:1;
+  padding:var(--space-7) var(--gutter);
+  max-width:var(--max-w);
+  margin:0 auto;
+}
+.section--bordered{
+  border-top:1px solid var(--line-soft);
+}
+
+.section-eyebrow{
+  font-family:var(--font-body);
+  font-weight:500;
+  font-size:.7rem;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--broxel-cyan);
+  margin-bottom:var(--space-2);
+  display:flex;
+  align-items:center;
+  gap:.8rem;
+}
+.section-eyebrow::before{
+  content:"";
+  display:block;
+  width:32px;
+  height:1px;
+  background:var(--broxel-cyan);
+}
+.section-title{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-size:clamp(2rem, 4vw, 3rem);
+  letter-spacing:.04em;
+  line-height:1.1;
+  color:var(--ink-100);
+  margin-bottom:var(--space-2);
+  max-width:720px;
+}
+.section-title em{
+  font-style:italic;
+  color:var(--broxel-cyan);
+  font-weight:500;
+}
+.section-intro{
+  font-family:var(--font-body);
+  font-weight:300;
+  font-size:1.02rem;
+  line-height:1.65;
+  color:var(--ink-300);
+  max-width:680px;
+  margin-bottom:var(--space-5);
+}
+.section-intro strong{
+  color:var(--ink-100);
+  font-weight:500;
+}
+
+.tier-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:var(--space-3);
+}
+.tier{
+  background:linear-gradient(180deg, rgba(0, 58, 93, 0.35) 0%, rgba(0, 26, 43, 0.2) 100%);
+  border:1px solid var(--line-med);
+  border-radius:2px;
+  padding:var(--space-5);
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  transition:border-color .4s ease, transform .4s ease, box-shadow .4s ease;
+}
+.tier:hover{
+  border-color:var(--line-accent);
+  transform:translateY(-4px);
+  box-shadow:0 30px 60px -30px rgba(0, 193, 222, 0.2);
+}
+.tier--featured{
+  border-color:var(--line-accent);
+  background:linear-gradient(180deg, rgba(0, 58, 93, 0.5) 0%, rgba(0, 58, 93, 0.2) 100%);
+  box-shadow:
+    0 0 0 1px rgba(0, 193, 222, 0.2),
+    inset 0 1px 0 rgba(0, 193, 222, 0.1);
+}
+.tier--featured::before{
+  content:"PAQUETE RECOMENDADO";
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%) translateY(-50%);
+  background:var(--broxel-cyan);
+  color:var(--broxel-navy-darker);
+  font-family:var(--font-body);
+  font-weight:600;
+  font-size:.6rem;
+  letter-spacing:.22em;
+  padding:.4rem 1rem;
+  border-radius:1px;
+  white-space:nowrap;
+}
+.tier__header{
+  padding-bottom:var(--space-3);
+  border-bottom:1px solid var(--line-soft);
+  margin-bottom:var(--space-3);
+}
+.tier__name{
+  font-family:var(--font-display);
+  font-weight:500;
+  font-size:2.25rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--ink-100);
+  line-height:1;
+  margin-bottom:.5rem;
+}
+.tier__tagline{
+  font-family:var(--font-body);
+  font-weight:300;
+  font-size:.78rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--ink-500);
+}
+.tier__price{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-size:2.75rem;
+  letter-spacing:.02em;
+  color:var(--ink-100);
+  line-height:1;
+  margin-bottom:.4rem;
+}
+.tier__price-unit{
+  font-family:var(--font-body);
+  font-size:.7rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--ink-500);
+  margin-bottom:var(--space-4);
+}
+.tier__includes{
+  font-family:var(--font-body);
+  font-size:.72rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--broxel-cyan);
+  font-weight:500;
+  margin-bottom:var(--space-2);
+}
+.tier__horse-package{
+  display:flex;
+  align-items:center;
+  gap:.7rem;
+  padding:var(--space-2) var(--space-3);
+  background:rgba(0, 193, 222, 0.08);
+  border-left:2px solid var(--broxel-cyan);
+  margin-bottom:var(--space-3);
+}
+.tier__horse-icon{
+  width:24px;
+  height:24px;
+  color:var(--broxel-cyan);
+  flex-shrink:0;
+}
+.tier__horse-text{
+  font-family:var(--font-body);
+  font-size:.88rem;
+  font-weight:400;
+  color:var(--ink-100);
+  line-height:1.4;
+}
+.tier__horse-text strong{
+  color:var(--broxel-cyan);
+  font-weight:600;
+}
+.tier__features{
+  list-style:none;
+  margin-bottom:0;
+  flex:1;
+}
+.tier__feature{
+  font-family:var(--font-body);
+  font-weight:300;
+  font-size:.9rem;
+  line-height:1.5;
+  color:var(--ink-300);
+  padding:.65rem 0;
+  padding-left:1.8rem;
+  position:relative;
+  border-bottom:1px dashed var(--line-soft);
+}
+.tier__feature:last-child{border-bottom:none}
+.tier__feature::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:1.05rem;
+  width:10px;
+  height:1px;
+  background:var(--broxel-cyan);
+}
+.tier__feature--strong{
+  color:var(--ink-100);
+  font-weight:400;
+}
+
+.tier-footnote{
+  margin-top:var(--space-4);
+  padding:var(--space-3) var(--space-4);
+  display:flex;
+  gap:.6rem;
+  align-items:flex-start;
+  border-left:1px solid var(--line-med);
+  max-width:760px;
+}
+.tier-footnote__marker{
+  font-family:var(--font-body);
+  font-size:.85rem;
+  color:var(--broxel-cyan);
+  font-weight:500;
+  flex-shrink:0;
+  line-height:1.6;
+}
+.tier-footnote__text{
+  font-family:var(--font-body);
+  font-size:.75rem;
+  font-weight:300;
+  line-height:1.6;
+  color:var(--ink-500);
+  font-style:italic;
+  letter-spacing:.01em;
+}
+
+/* ============================================
+   CONCURSO TITLE SPONSOR
+   ============================================ */
+.concurso-section{
+  position:relative;
+  z-index:1;
+  padding:var(--space-7) var(--gutter);
+  max-width:var(--max-w);
+  margin:0 auto;
+  border-top:1px solid var(--line-soft);
+}
+.concurso-card{
+  background:linear-gradient(135deg, rgba(0, 58, 93, 0.6) 0%, rgba(0, 26, 43, 0.4) 100%);
+  border:1px solid var(--line-accent);
+  border-radius:2px;
+  padding:var(--space-6);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:var(--space-6);
+  align-items:start;
+  position:relative;
+  overflow:hidden;
+}
+.concurso-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  right:0;
+  width:300px;
+  height:300px;
+  background:radial-gradient(circle, rgba(0, 193, 222, 0.12) 0%, transparent 70%);
+  pointer-events:none;
+}
+.concurso-card__main{position:relative;z-index:1}
+.concurso-card__eyebrow{
+  font-family:var(--font-body);
+  font-weight:500;
+  font-size:.7rem;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--broxel-cyan);
+  margin-bottom:var(--space-2);
+}
+.concurso-card__title{
+  font-family:var(--font-display);
+  font-weight:500;
+  font-size:clamp(2rem, 3.5vw, 2.75rem);
+  letter-spacing:.04em;
+  line-height:1.1;
+  color:var(--ink-100);
+  margin-bottom:var(--space-3);
+}
+.concurso-card__title em{
+  font-style:italic;
+  color:var(--broxel-cyan);
+}
+.concurso-card__description{
+  font-family:var(--font-body);
+  font-weight:300;
+  font-size:1rem;
+  line-height:1.65;
+  color:var(--ink-300);
+  margin-bottom:var(--space-4);
+}
+.concurso-card__price-block{
+  display:flex;
+  align-items:baseline;
+  gap:var(--space-2);
+  padding-top:var(--space-3);
+  border-top:1px solid var(--line-soft);
+}
+.concurso-card__price{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-size:3.25rem;
+  letter-spacing:.02em;
+  color:var(--ink-100);
+  line-height:1;
+}
+.concurso-card__price-unit{
+  font-family:var(--font-body);
+  font-size:.75rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--ink-500);
+}
+
+.concurso-benefits{
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-direction:column;
+  gap:.7rem;
+}
+.concurso-benefit{
+  display:grid;
+  grid-template-columns:48px 1fr;
+  gap:var(--space-2);
+  align-items:start;
+  padding:var(--space-2) var(--space-3);
+  background:rgba(0, 26, 43, 0.4);
+  border:1px solid var(--line-soft);
+  border-radius:2px;
+  transition:border-color .3s ease;
+}
+.concurso-benefit:hover{border-color:var(--line-accent)}
+.concurso-benefit__icon-wrap{
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0, 193, 222, 0.1);
+  border-radius:50%;
+}
+.concurso-benefit__icon{
+  width:20px;
+  height:20px;
+  color:var(--broxel-cyan);
+}
+.concurso-benefit__title{
+  font-family:var(--font-body);
+  font-weight:500;
+  font-size:.85rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink-100);
+  margin-bottom:.3rem;
+}
+.concurso-benefit__text{
+  font-family:var(--font-body);
+  font-weight:300;
+  font-size:.88rem;
+  line-height:1.5;
+  color:var(--ink-300);
+}
+
+.concurso-note{
+  margin-top:var(--space-4);
+  padding:var(--space-3) var(--space-4);
+  background:rgba(0, 193, 222, 0.04);
+  border-left:2px solid var(--broxel-cyan);
+  font-family:var(--font-body);
+  font-size:.82rem;
+  font-style:italic;
+  line-height:1.55;
+  color:var(--ink-300);
+}
+.concurso-note strong{
+  color:var(--ink-100);
+  font-style:normal;
+  font-weight:500;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer{
+  position:relative;
+  z-index:1;
+  padding:var(--space-5) var(--gutter) var(--space-4);
+  border-top:1px solid var(--line-soft);
+  text-align:center;
+  margin-top:var(--space-5);
+}
+.site-footer__quote{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-style:italic;
+  font-size:1.35rem;
+  letter-spacing:.04em;
+  color:var(--ink-200);
+  max-width:720px;
+  margin:0 auto var(--space-3);
+  line-height:1.5;
+}
+.site-footer__attribution{
+  font-family:var(--font-body);
+  font-size:.65rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--ink-700);
+  margin-top:var(--space-3);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px){
+  .hero,.concurso-card{
+    grid-template-columns:1fr;
+    gap:var(--space-5);
+  }
+  .tier-grid{
+    grid-template-columns:1fr;
+    max-width:520px;
+    margin:0 auto;
+  }
+  .tier--featured{order:-1}
+}
+@media (max-width: 640px){
+  .site-header{flex-direction:column;align-items:flex-start;gap:var(--space-2)}
+  .brand-mark__divider{display:none}
+  .brand-mark{flex-wrap:wrap;gap:var(--space-2)}
+  .header-meta{text-align:left}
+  .pillar{grid-template-columns:48px 1fr;gap:var(--space-2)}
+  .pillar__icon{width:36px;height:36px}
+  .carousel__track{aspect-ratio:3/4}
+  .concurso-card{padding:var(--space-4)}
+}
+
+/* ============================================
+   PRINT
+   ============================================ */
+@media print{
+  @page{size:A4 landscape;margin:1cm}
+  body{background:white;color:black}
+  body::before{display:none}
+  .site-header,.hero{break-inside:avoid}
+  .section,.concurso-section{break-before:page}
+  .carousel__nav,.carousel__controls{display:none}
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero > *{animation:fadeUp .8s cubic-bezier(.2, .8, .2, 1) both}
+.hero > *:nth-child(2){animation-delay:.15s}
+.pillar{animation:fadeUp .8s cubic-bezier(.2, .8, .2, 1) both}
+.pillar:nth-child(1){animation-delay:.2s}
+.pillar:nth-child(2){animation-delay:.3s}
+.pillar:nth-child(3){animation-delay:.4s}
+.pillar:nth-child(4){animation-delay:.5s}
+
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     HEADER
+     ============================================ -->
+<header class="site-header">
+  <div class="brand-mark">
+    <!-- Broxel official logo, recolored to white version for navy bg -->
+    <svg class="brand-mark__logo" viewBox="0 0 442.7 74.6" xmlns="http://www.w3.org/2000/svg" aria-label="Broxel">
+      <style>.broxel-infinity{fill:#00C1DE}.broxel-wordmark{fill:#ffffff}</style>
+      <g>
+        <rect class="broxel-infinity" x="65" y="39.1" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -11.6421 62.8888)" width="10.2" height="12.8"/>
+        <path class="broxel-infinity" d="M120,73.3c9.2,0,18.4-3.5,25.4-10.5c14-14,14-36.8,0-50.8c-7-7-16.2-10.5-25.4-10.5c-9.2,0-18.4,3.5-25.4,10.6L84,1.4H65.9l28.7,28.7l9.1-9.1c4.4-4.4,10.1-6.8,16.3-6.8c6.2,0,12,2.4,16.3,6.8c9,9,9,23.7,0,32.7c-4.4,4.4-10.2,6.8-16.3,6.8c-6.2,0-12-2.4-16.3-6.8L61.9,11.9c-7-7-16.2-10.6-25.4-10.6c-9.2,0-18.4,3.5-25.4,10.5c-14,14-14,36.8,0,50.8c7,7,16.2,10.5,25.4,10.5c9.2,0,18.4-3.5,25.4-10.5l9.1-9.1l-9.1-9.1l-9.1,9.1c-4.4,4.4-10.2,6.8-16.3,6.8c-6.2,0-12-2.4-16.3-6.8c-9-9-9-23.7,0-32.7c4.4-4.4,10.2-6.8,16.3-6.8c6.2,0,11.9,2.4,16.3,6.8l41.7,41.7C101.6,69.7,110.8,73.3,120,73.3z"/>
+      </g>
+      <g>
+        <path class="broxel-wordmark" d="M292,24.5c7.1,0,12.8,5.8,12.8,12.9c0,7.1-5.7,12.8-12.8,12.8c-7.1,0-12.9-5.7-12.9-12.8C279.1,30.2,284.9,24.5,292,24.5 M292,14.2c-12.8,0-23.1,10.4-23.1,23.1c0,12.7,10.3,23.1,23.1,23.1c12.8,0,23.1-10.3,23.1-23.1C315.1,24.6,304.7,14.2,292,14.2L292,14.2z"/>
+        <path class="broxel-wordmark" d="M442.1,50.1v10.3h-35.9V14.2h10.3v35.9H442.1z"/>
+        <polygon class="broxel-wordmark" points="311,60.4 324.8,60.4 336.6,45.9 348.2,60.4 361.8,60.4 343.3,37.4 361.8,14.2 348.2,14.2 336.6,28.8 324.7,14.2 311,14.2 329.7,37.2"/>
+        <path class="broxel-wordmark" d="M220.7,45.6c0,9.2-7.3,14.8-14.3,14.8h-26.1V14.2h24.8c6.7,0,13.7,4.8,13.7,13.8c0,3.1-0.7,5.7-1.8,7.8C219.1,38.3,220.7,41.6,220.7,45.6z M190.6,32.2h13.9c2.1-0.1,4.1-1.8,4.1-4.4s-2-4.6-4.1-4.6h-13.9V32.2z M210.5,46c0-2.9-2.2-4.8-4.6-4.8h-15.4v9.6H206C208.5,50.8,210.5,48.7,210.5,46z"/>
+        <polygon class="broxel-wordmark" points="401.1,24.5 401.1,14.2 365.1,14.2 365.1,60.4 401.1,60.4 401.1,50.1 375.4,50.1 375.4,41.8 394,41.8 394,32.8 375.4,32.8 375.4,24.5"/>
+        <path class="broxel-wordmark" d="M255.3,44.4c5.7-2.4,9.8-8,9.8-14.5c0-8.7-7.2-15.7-16-15.7h-22.5v46.2h10.3V45.7h6.6l12.8,14.8h13.3L255.3,44.4z M249,35.4h-12.2V23.8H249c3.2,0,5.8,2.6,5.8,5.8S252.2,35.4,249,35.4z"/>
+      </g>
+    </svg>
+    <span class="brand-mark__divider" aria-hidden="true"></span>
+    <div class="brand-mark__rider">
+      <span class="brand-mark__rider-name" id="rider-name">Nicolás Pizarro</span>
+      <span class="brand-mark__rider-title" id="rider-title">Global Equestrian Brand Ambassador</span>
+    </div>
+  </div>
+  <div class="header-meta">
+    <div>Propuesta de Patrocinio</div>
+    <div class="header-meta__year" id="proposal-year">Temporada 2026</div>
+  </div>
+</header>
+
+<!-- ============================================
+     HERO
+     ============================================ -->
+<section class="hero">
+
+  <!-- Carousel -->
+  <div class="carousel" id="carousel" role="region" aria-label="Galería de concurso">
+    <div class="carousel__track" id="carousel-track"></div>
+
+    <button class="carousel__nav carousel__nav--prev" id="carousel-prev" aria-label="Imagen anterior">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M15 18l-6-6 6-6"/>
+      </svg>
+    </button>
+    <button class="carousel__nav carousel__nav--next" id="carousel-next" aria-label="Siguiente imagen">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M9 18l6-6-6-6"/>
+      </svg>
+    </button>
+
+    <div class="carousel__quote">
+      <span class="carousel__quote-mark">"</span>
+      <p class="carousel__quote-text" id="hero-quote">
+        Representando a México<br>
+        con pasión, disciplina y orgullo<br>
+        <em>en el escenario mundial.</em>
+      </p>
+    </div>
+
+    <div class="carousel__controls" id="carousel-dots" role="tablist"></div>
+  </div>
+
+  <!-- Pillars -->
+  <div class="pillars" id="pillars"></div>
+
+</section>
+
+<!-- ============================================
+     AMBASSADOR TIERS
+     ============================================ -->
+<section class="section section--bordered" id="ambassador-section">
+  <div class="section-eyebrow">Embajador de Marca</div>
+  <h2 class="section-title">Dos niveles de <em>representación</em> de marca Broxel</h2>
+  <p class="section-intro">
+    El programa de embajador integra a <strong>Nicolás Pizarro como jinete total Broxel</strong> en
+    concursos nacionales e internacionales, con presencia de marca en uniforme, equipo
+    competitivo y contenido editorial durante toda la temporada.
+  </p>
+
+  <div class="tier-grid" id="tier-grid"></div>
+
+  <div class="tier-footnote">
+    <span class="tier-footnote__marker">*</span>
+    <span class="tier-footnote__text">
+      El uniforme oficial y equipo de concurso con branding de marca son proveídos por Broxel,
+      con previo acuerdo mutuo y coordinación con el jinete. No incluido en el costo del paquete anual.
+    </span>
+  </div>
+</section>
+
+<!-- ============================================
+     CONCURSO TITLE SPONSOR
+     ============================================ -->
+<section class="concurso-section">
+  <div class="section-eyebrow">Activación Adicional</div>
+  <h2 class="section-title">Title Sponsor <em>de Concurso</em></h2>
+  <p class="section-intro">
+    Para llevar la presencia de marca a un nivel de propiedad total, ofrecemos a Broxel el
+    <strong>título principal de un concurso ecuestre</strong>, con beneficios de naming, visibilidad
+    en premiación y espacio de activación premium.
+  </p>
+
+  <div class="concurso-card">
+    <div class="concurso-card__main">
+      <div class="concurso-card__eyebrow">Paquete Title Sponsor</div>
+      <h3 class="concurso-card__title">Naming Rights del <em>Concurso</em></h3>
+      <p class="concurso-card__description" id="concurso-description">
+        El concurso lleva el nombre de Broxel como título principal del evento. La marca se
+        convierte en el patrocinador de mayor jerarquía visual durante todo el concurso,
+        con presencia consistente en pista, premiaciones y comunicación oficial.
+      </p>
+      <div class="concurso-card__price-block">
+        <span class="concurso-card__price" id="concurso-price">$300,000</span>
+        <span class="concurso-card__price-unit" id="concurso-price-unit">MXN · + IVA · por concurso</span>
+      </div>
+    </div>
+
+    <div class="concurso-benefits" id="concurso-benefits"></div>
+  </div>
+
+  <div class="concurso-note" id="concurso-note">
+    <strong>Nota sobre la terraza:</strong> el espacio de terraza VIP es organizado y cubierto
+    por Broxel en su totalidad. El concurso facilita la ubicación y permisos para la activación.
+  </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="site-footer">
+  <p class="site-footer__quote" id="footer-quote">
+    "La marca correcta no patrocina al jinete; galopa con nosotros."
+  </p>
+  <div class="site-footer__attribution">
+    Nicolás Pizarro · Temporada 2026 · Propuesta confidencial
+  </div>
+</footer>
+
+<!-- ============================================
+     CONFIGURATION + LOGIC
+     ============================================ -->
+<script>
+/* ============================================
+   PROPOSAL DATA  ·  edit everything here
+   ============================================ */
+const proposalData = {
+
+  rider: {
+    name: "Nicolás Pizarro",
+    title: "Global Equestrian Brand Ambassador"
+  },
+
+  sponsor: {
+    name: "Broxel",
+    proposalYear: "Temporada 2026"
+  },
+
+  carousel: {
+    autoplay: true,
+    intervalMs: 5500,
+    slides: [
+      { src: "images/hero-01-action.jpg", alt: "Saludo al público tras concurso · México Jumping" },
+      { src: "images/hero-07.jpg",         alt: "Celebración tras victoria con listón de campeón" },
+      { src: "images/hero-05.jpg",         alt: "Salto en pista, Santa Clara" },
+      { src: "images/hero-02-victory.jpg", alt: "Vuelta de honor con escarapela tricolor · GNP Seguros" },
+      { src: "images/hero-04.jpg",         alt: "Caballo tordo con listón amarillo · Copa GNP" },
+      { src: "images/hero-03.jpg",         alt: "Galope en pista · GNP Seguros" },
+      { src: "images/hero-06.jpg",         alt: "Reconocimiento de pista, ambiente competitivo" }
+    ]
+  },
+
+  heroQuote: {
+    line1: "Representando a México",
+    line2: "con pasión, disciplina y orgullo",
+    lineEmph: "en el escenario mundial."
+  },
+
+  // ---------- Value pillars ----------
+  pillars: [
+    {
+      icon: "globe",
+      title: "Visibilidad Global",
+      text: "Presencia en <strong>concursos nacionales e internacionales</strong>. Exposición ante audiencias de alto nivel en México, Europa y el mundo."
+    },
+    {
+      icon: "shield",
+      title: "Premium Branding",
+      text: "Representación de marca en el <strong>uniforme del jinete, equipo y remolque de caballos</strong>. Presencia en pistas y concursos de alto nivel."
+    },
+    {
+      icon: "camera",
+      title: "Contenido Exclusivo",
+      text: "Creación de contenido auténtico de alto impacto en concursos, entrenamientos y lifestyle. Alcance en redes sociales y medios especializados."
+    },
+    {
+      icon: "audience",
+      title: "Afinidad de Audiencia",
+      text: "Conexión directa con el perfil objetivo de Broxel: <strong>alta capacidad adquisitiva, decisores empresariales y familias mexicanas con tradición</strong>. El ecuestre es el deporte con mayor alineación demográfica con productos financieros premium."
+    }
+  ],
+
+  // ---------- Ambassador tiers ----------
+  tiers: [
+    {
+      name: "Blue",
+      tagline: "Embajador · Paquete Esencial",
+      price: "$250,000",
+      priceUnit: "MXN · anual · + IVA",
+      includes: "Incluye",
+      horsePackage: {
+        text: "Nicolás Pizarro como <strong>jinete total Broxel</strong> + equipo de <strong>1 caballo (Farino)</strong>"
+      },
+      featured: false,
+      features: [
+        { text: "Logo Broxel en uniforme de concurso del jinete", strong: true },
+        { text: "Logo Broxel en mantilla y orejeras de Farino" },
+        { text: "Menciones de marca en publicaciones de Instagram durante la temporada" },
+        { text: "Presencia en pistas y circuitos donde compite Farino" },
+        { text: "Reportes de impacto semestrales" }
+      ]
+    },
+    {
+      name: "World Elite",
+      tagline: "Embajador · Paquete Premium",
+      price: "$400,000",
+      priceUnit: "MXN · anual · + IVA",
+      includes: "Incluye",
+      horsePackage: {
+        text: "Nicolás Pizarro como <strong>jinete total Broxel</strong> + equipo de <strong>6 caballos</strong> (Farino + 5 rotativos)"
+      },
+      featured: true,
+      features: [
+        { text: "Logo Broxel en uniforme de concurso del jinete", strong: true },
+        { text: "Logo Broxel en mantillas y orejeras de toda la cuadra", strong: true },
+        { text: "Branding de marca en remolque de caballos", strong: true },
+        { text: "Estrategia dedicada de contenido en Instagram: menciones recurrentes, stories de concurso, posts protagónicos y colaboraciones con la marca", strong: true },
+        { text: "Cobertura ampliada en circuitos nacionales e internacionales", strong: true },
+        { text: "Activaciones de marca en concursos clave" },
+        { text: "Presencia destacada en pista y entrenamientos" },
+        { text: "Acceso a comunidad de jinetes y eventos VIP" },
+        { text: "Reportes de impacto trimestrales" }
+      ]
+    }
+  ],
+
+  // ---------- Concurso Title Sponsor ----------
+  concurso: {
+    description: "El concurso lleva el nombre de Broxel como título principal del evento. La marca se convierte en el patrocinador de mayor jerarquía visual durante todo el concurso, con presencia consistente en pista, premiaciones y comunicación oficial.",
+    price: "$300,000",
+    priceUnit: "MXN · + IVA · por concurso",
+    benefits: [
+      {
+        icon: "trophy",
+        title: "Naming Title del Concurso",
+        text: "El nombre del concurso integra a Broxel como título principal en toda la comunicación oficial, programa de mano, redes y prensa."
+      },
+      {
+        icon: "branding",
+        title: "Visualización de Marca Heavy",
+        text: "Saturación visual del concurso con presencia Broxel: vallas en pista, lonas perimetrales, obstáculos brandeados, totems de acceso, señalética interior y pantallas LED. La marca domina visualmente el evento."
+      },
+      {
+        icon: "medal",
+        title: "Presencia en Premiaciones",
+        text: "Broxel está presente en todas las ceremonias de premiación del concurso, con visibilidad en escenario, banners y entrega de reconocimientos."
+      },
+      {
+        icon: "terrace",
+        title: "Espacio de Terraza VIP",
+        text: "Se asigna a Broxel un espacio premium para activación de terraza propia, con vista privilegiada de la pista y acceso a la comunidad ecuestre."
+      }
+    ],
+    note: "<strong>Nota sobre la terraza:</strong> el espacio de terraza VIP es organizado y cubierto por Broxel en su totalidad. El concurso facilita la ubicación y permisos para la activación."
+  },
+
+  footerQuote: '"La marca correcta no patrocina al jinete; galopa con nosotros."'
+};
+
+/* ============================================
+   ICONS
+   ============================================ */
+const icons = {
+  globe: `<svg class="pillar__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="24" cy="24" r="18"/>
+    <ellipse cx="24" cy="24" rx="8" ry="18"/>
+    <line x1="6" y1="24" x2="42" y2="24"/>
+    <path d="M24 6 Q12 18 24 42 Q36 30 24 6"/>
+  </svg>`,
+  shield: `<svg class="pillar__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+    <path d="M24 4 L8 10 L8 24 Q8 36 24 44 Q40 36 40 24 L40 10 Z"/>
+    <path d="M18 20 L24 14 L30 20 L30 30 L18 30 Z" fill="none"/>
+    <path d="M24 14 L24 30 M18 24 L30 24" stroke-width="0.8"/>
+  </svg>`,
+  camera: `<svg class="pillar__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+    <rect x="6" y="14" width="28" height="22" rx="2"/>
+    <path d="M34 21 L42 16 L42 34 L34 29 Z"/>
+    <circle cx="20" cy="25" r="4"/>
+  </svg>`,
+  community: `<svg class="pillar__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="24" cy="16" r="5"/>
+    <path d="M14 38 Q14 28 24 28 Q34 28 34 38"/>
+    <circle cx="10" cy="19" r="4"/>
+    <path d="M4 36 Q4 28 10 28"/>
+    <circle cx="38" cy="19" r="4"/>
+    <path d="M44 36 Q44 28 38 28"/>
+  </svg>`,
+  audience: `<svg class="pillar__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="24" cy="24" r="18"/>
+    <circle cx="24" cy="24" r="11"/>
+    <circle cx="24" cy="24" r="4"/>
+    <circle cx="24" cy="24" r="1.2" fill="currentColor" stroke="none"/>
+    <line x1="24" y1="2" x2="24" y2="8"/>
+    <line x1="24" y1="40" x2="24" y2="46"/>
+    <line x1="2" y1="24" x2="8" y2="24"/>
+    <line x1="40" y1="24" x2="46" y2="24"/>
+  </svg>`,
+  horse: `<svg class="tier__horse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5 19 L5 14 Q5 11 7 9 L8 8 L8 5 L10 5 L11 7 L14 6 Q17 6 19 9 Q20 11 20 13 L20 19"/>
+    <path d="M11 7 L8 8"/>
+    <circle cx="9" cy="6.5" r="0.5" fill="currentColor"/>
+  </svg>`,
+  trophy: `<svg class="concurso-benefit__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6 4 L18 4 L18 10 Q18 14 12 14 Q6 14 6 10 Z"/>
+    <path d="M6 6 L3 6 L3 8 Q3 10 6 10"/>
+    <path d="M18 6 L21 6 L21 8 Q21 10 18 10"/>
+    <line x1="12" y1="14" x2="12" y2="18"/>
+    <line x1="9" y1="20" x2="15" y2="20"/>
+    <line x1="9" y1="18" x2="15" y2="18"/>
+  </svg>`,
+  branding: `<svg class="concurso-benefit__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+    <rect x="3" y="5" width="7" height="5"/>
+    <rect x="14" y="5" width="7" height="5"/>
+    <rect x="3" y="14" width="7" height="5"/>
+    <rect x="14" y="14" width="7" height="5"/>
+    <circle cx="6.5" cy="7.5" r="1" fill="currentColor" stroke="none"/>
+    <circle cx="17.5" cy="7.5" r="1" fill="currentColor" stroke="none"/>
+    <circle cx="6.5" cy="16.5" r="1" fill="currentColor" stroke="none"/>
+    <circle cx="17.5" cy="16.5" r="1" fill="currentColor" stroke="none"/>
+  </svg>`,
+  medal: `<svg class="concurso-benefit__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="15" r="6"/>
+    <path d="M8 3 L8 11 M16 3 L16 11 M6 3 L18 3"/>
+    <circle cx="12" cy="15" r="2" fill="currentColor" stroke="none"/>
+  </svg>`,
+  terrace: `<svg class="concurso-benefit__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3 21 L21 21"/>
+    <path d="M5 21 L5 12 L19 12 L19 21"/>
+    <path d="M5 12 L12 6 L19 12"/>
+    <rect x="9" y="15" width="6" height="6"/>
+    <line x1="3" y1="9" x2="6" y2="9"/>
+    <line x1="18" y1="9" x2="21" y2="9"/>
+  </svg>`
+};
+
+/* ============================================
+   RENDER
+   ============================================ */
+function renderHeader(){
+  document.getElementById('rider-name').textContent = proposalData.rider.name;
+  document.getElementById('rider-title').textContent = proposalData.rider.title;
+  document.getElementById('proposal-year').textContent = proposalData.sponsor.proposalYear;
+  document.title = `${proposalData.rider.name} · ${proposalData.rider.title} · ${proposalData.sponsor.name}`;
+}
+
+function renderHeroQuote(){
+  const q = proposalData.heroQuote;
+  document.getElementById('hero-quote').innerHTML =
+    `${q.line1}<br>${q.line2}<br><em>${q.lineEmph}</em>`;
+}
+
+function renderFooterQuote(){
+  document.getElementById('footer-quote').textContent = proposalData.footerQuote;
+}
+
+function renderPillars(){
+  document.getElementById('pillars').innerHTML = proposalData.pillars.map(p => `
+    <div class="pillar">
+      ${icons[p.icon] || ''}
+      <div class="pillar__content">
+        <h3 class="pillar__title">${p.title}<span class="pillar__title-rule"></span></h3>
+        <p class="pillar__text">${p.text}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderCarousel(){
+  const track = document.getElementById('carousel-track');
+  const dots = document.getElementById('carousel-dots');
+  const slides = proposalData.carousel.slides;
+
+  track.innerHTML = slides.map((s, i) => `
+    <div class="carousel__slide ${i === 0 ? 'carousel__slide--active' : ''}"
+         style="background-image:url('${s.src}')"
+         role="img"
+         aria-label="${s.alt}"></div>
+  `).join('');
+
+  dots.innerHTML = slides.map((_, i) => `
+    <button class="carousel__dot ${i === 0 ? 'carousel__dot--active' : ''}"
+            data-index="${i}"
+            aria-label="Ir a imagen ${i + 1}"></button>
+  `).join('');
+
+  if (slides.length <= 1){
+    document.getElementById('carousel-prev').style.display = 'none';
+    document.getElementById('carousel-next').style.display = 'none';
+    dots.style.display = 'none';
+  }
+}
+
+function renderTiers(){
+  const grid = document.getElementById('tier-grid');
+  grid.innerHTML = proposalData.tiers.map(t => `
+    <div class="tier ${t.featured ? 'tier--featured' : ''}">
+      <div class="tier__header">
+        <div class="tier__name">${t.name}</div>
+        <div class="tier__tagline">${t.tagline}</div>
+      </div>
+      <div class="tier__price">${t.price}</div>
+      <div class="tier__price-unit">${t.priceUnit}</div>
+
+      <div class="tier__includes">${t.includes}</div>
+      <div class="tier__horse-package">
+        ${icons.horse}
+        <div class="tier__horse-text">${t.horsePackage.text}</div>
+      </div>
+
+      <ul class="tier__features">
+        ${t.features.map(f => `
+          <li class="tier__feature ${f.strong ? 'tier__feature--strong' : ''}">${f.text}</li>
+        `).join('')}
+      </ul>
+    </div>
+  `).join('');
+}
+
+function renderConcurso(){
+  const c = proposalData.concurso;
+  document.getElementById('concurso-description').textContent = c.description;
+  document.getElementById('concurso-price').textContent = c.price;
+  document.getElementById('concurso-price-unit').textContent = c.priceUnit;
+  document.getElementById('concurso-note').innerHTML = c.note;
+
+  document.getElementById('concurso-benefits').innerHTML = c.benefits.map(b => `
+    <div class="concurso-benefit">
+      <div class="concurso-benefit__icon-wrap">
+        ${icons[b.icon] || ''}
+      </div>
+      <div>
+        <div class="concurso-benefit__title">${b.title}</div>
+        <p class="concurso-benefit__text">${b.text}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ============================================
+   CAROUSEL
+   ============================================ */
+class Carousel {
+  constructor(){
+    this.slides = document.querySelectorAll('.carousel__slide');
+    this.dots = document.querySelectorAll('.carousel__dot');
+    this.current = 0;
+    this.total = this.slides.length;
+    this.timer = null;
+
+    if (this.total <= 1) return;
+
+    document.getElementById('carousel-prev').addEventListener('click', () => this.prev());
+    document.getElementById('carousel-next').addEventListener('click', () => this.next());
+    this.dots.forEach(dot => {
+      dot.addEventListener('click', e => this.goTo(parseInt(e.target.dataset.index)));
+    });
+
+    const carousel = document.getElementById('carousel');
+    carousel.addEventListener('mouseenter', () => this.stop());
+    carousel.addEventListener('mouseleave', () => this.start());
+
+    // Touch / swipe
+    let touchStartX = 0;
+    carousel.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+    carousel.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50){
+        if (dx > 0) this.prev(); else this.next();
+      }
+    });
+
+    if (proposalData.carousel.autoplay) this.start();
+  }
+
+  goTo(index){
+    this.slides[this.current].classList.remove('carousel__slide--active');
+    this.dots[this.current].classList.remove('carousel__dot--active');
+    this.current = (index + this.total) % this.total;
+    this.slides[this.current].classList.add('carousel__slide--active');
+    this.dots[this.current].classList.add('carousel__dot--active');
+  }
+
+  next(){ this.goTo(this.current + 1); }
+  prev(){ this.goTo(this.current - 1); }
+
+  start(){
+    if (!proposalData.carousel.autoplay || this.total <= 1) return;
+    this.stop();
+    this.timer = setInterval(() => this.next(), proposalData.carousel.intervalMs);
+  }
+  stop(){
+    if (this.timer){
+      clearInterval(this.timer);
+      this.timer = null;
+    }
+  }
+}
+
+/* ============================================
+   INIT
+   ============================================ */
+document.addEventListener('DOMContentLoaded', () => {
+  renderHeader();
+  renderHeroQuote();
+  renderFooterQuote();
+  renderPillars();
+  renderCarousel();
+  renderTiers();
+  renderConcurso();
+  new Carousel();
+});
+</script>
+
+</body>
+</html>
