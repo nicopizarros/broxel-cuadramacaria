@@ -789,6 +789,9 @@ body::before{
   .site-header,.hero{break-inside:avoid}
   .section,.concurso-section{break-before:page}
   .carousel__nav,.carousel__controls{display:none}
+  /* Auth gate: always hidden when printing; content always visible */
+  #auth-gate,#preloader{display:none!important}
+  #proposal-content{opacity:1!important;visibility:visible!important}
 }
 
 /* ============================================
@@ -806,9 +809,302 @@ body::before{
 .pillar:nth-child(3){animation-delay:.4s}
 .pillar:nth-child(4){animation-delay:.5s}
 
+/* ============================================
+   AUTH GATE
+   ============================================ */
+#auth-gate{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:var(--bg-base);
+  background-image:
+    radial-gradient(at 15% 20%, rgba(0, 193, 222, 0.06) 0%, transparent 50%),
+    radial-gradient(at 85% 80%, rgba(0, 193, 222, 0.04) 0%, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(0, 58, 93, 0.2) 0%, transparent 70%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:var(--space-4);
+  transition:opacity 600ms cubic-bezier(.4,0,.2,1);
+}
+#auth-gate.fade-out{
+  opacity:0;
+  pointer-events:none;
+}
+
+.auth-card{
+  width:100%;
+  max-width:400px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:var(--space-2);
+  text-align:center;
+}
+
+.auth-card__logo{
+  height:42px;
+  width:auto;
+  margin-bottom:var(--space-3);
+}
+
+.auth-card__eyebrow{
+  font-family:var(--font-body);
+  font-weight:500;
+  font-size:.65rem;
+  letter-spacing:.36em;
+  text-transform:uppercase;
+  color:var(--broxel-cyan);
+}
+
+.auth-card__headline{
+  font-family:var(--font-display);
+  font-weight:400;
+  font-size:clamp(2rem, 5vw, 2.6rem);
+  letter-spacing:.04em;
+  color:var(--ink-100);
+  line-height:1.1;
+  margin:.4rem 0;
+}
+
+.auth-card__subtitle{
+  font-family:var(--font-body);
+  font-weight:300;
+  font-size:.88rem;
+  line-height:1.65;
+  color:var(--ink-300);
+  max-width:320px;
+  margin-bottom:var(--space-2);
+}
+
+.auth-form{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:var(--space-2);
+  margin-top:var(--space-2);
+}
+
+.auth-input{
+  width:100%;
+  background:transparent;
+  border:none;
+  border-bottom:1px solid var(--broxel-cyan);
+  border-radius:0;
+  padding:.85rem 0;
+  font-family:var(--font-body);
+  font-weight:300;
+  font-size:1rem;
+  letter-spacing:.12em;
+  color:var(--ink-100);
+  text-align:center;
+  outline:none;
+  transition:border-color .3s ease;
+  -webkit-appearance:none;
+}
+.auth-input::placeholder{
+  color:var(--ink-500);
+  letter-spacing:.12em;
+}
+.auth-input:focus{
+  border-bottom-color:var(--broxel-cyan-light);
+}
+
+.auth-error{
+  font-family:var(--font-body);
+  font-size:.72rem;
+  letter-spacing:.1em;
+  color:var(--broxel-cyan);
+  opacity:0;
+  min-height:1em;
+  transition:opacity .3s ease;
+}
+.auth-error--visible{opacity:1}
+
+.auth-btn{
+  border:1px solid var(--broxel-cyan);
+  color:var(--broxel-cyan);
+  background:transparent;
+  font-family:var(--font-body);
+  font-weight:500;
+  font-size:.72rem;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  padding:.9rem 2.8rem;
+  margin-top:var(--space-1);
+  cursor:pointer;
+  transition:background 250ms cubic-bezier(.4,0,.2,1), color 250ms cubic-bezier(.4,0,.2,1);
+}
+.auth-btn:hover{
+  background:var(--broxel-cyan);
+  color:var(--broxel-navy-darker);
+}
+
+.auth-screen-footer{
+  position:fixed;
+  bottom:var(--space-4);
+  left:0;
+  right:0;
+  text-align:center;
+  font-family:var(--font-body);
+  font-size:.62rem;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:var(--ink-700);
+  pointer-events:none;
+}
+
+@keyframes shake{
+  0%,100%{transform:translateX(0)}
+  15%{transform:translateX(-8px)}
+  30%{transform:translateX(8px)}
+  45%{transform:translateX(-6px)}
+  60%{transform:translateX(6px)}
+  75%{transform:translateX(-3px)}
+  90%{transform:translateX(3px)}
+}
+.auth-input--shake{
+  animation:shake .5s cubic-bezier(.4,0,.2,1);
+}
+
+/* ============================================
+   PRELOADER
+   ============================================ */
+#preloader{
+  position:fixed;
+  inset:0;
+  z-index:9998;
+  background:var(--bg-base);
+  background-image:
+    radial-gradient(at 15% 20%, rgba(0, 193, 222, 0.06) 0%, transparent 50%),
+    radial-gradient(at 85% 80%, rgba(0, 193, 222, 0.04) 0%, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(0, 58, 93, 0.2) 0%, transparent 70%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:var(--space-3);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 300ms cubic-bezier(.4,0,.2,1);
+}
+#preloader.visible{
+  opacity:1;
+  pointer-events:auto;
+}
+#preloader.fade-out{
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 400ms cubic-bezier(.4,0,.2,1);
+}
+
+.preloader__infinity{
+  width:80px;
+  height:auto;
+  color:var(--broxel-cyan);
+  animation:preloaderPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes preloaderPulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.45;transform:scale(.94)}
+}
+
+.preloader__text{
+  font-family:var(--font-body);
+  font-weight:300;
+  font-size:.72rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--ink-500);
+}
+
+/* ============================================
+   PROPOSAL CONTENT WRAPPER
+   ============================================ */
+#proposal-content{
+  opacity:0;
+  visibility:hidden;
+  transition:opacity 600ms cubic-bezier(.4,0,.2,1);
+}
+#proposal-content.revealed{
+  opacity:1;
+  visibility:visible;
+}
+
 </style>
 </head>
 <body>
+
+<!-- ============================================
+     AUTH GATE
+     Shown before any proposal content.
+     Removed from DOM after successful auth.
+     ============================================ -->
+<div id="auth-gate" role="dialog" aria-modal="true" aria-label="Acceso protegido">
+  <div class="auth-card">
+
+    <!-- Broxel full logo -->
+    <svg class="auth-card__logo" viewBox="0 0 442.7 74.6" xmlns="http://www.w3.org/2000/svg" aria-label="Broxel">
+      <style>.ag-inf{fill:#00C1DE}.ag-wm{fill:#ffffff}</style>
+      <g>
+        <rect class="ag-inf" x="65" y="39.1" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -11.6421 62.8888)" width="10.2" height="12.8"/>
+        <path class="ag-inf" d="M120,73.3c9.2,0,18.4-3.5,25.4-10.5c14-14,14-36.8,0-50.8c-7-7-16.2-10.5-25.4-10.5c-9.2,0-18.4,3.5-25.4,10.6L84,1.4H65.9l28.7,28.7l9.1-9.1c4.4-4.4,10.1-6.8,16.3-6.8c6.2,0,12,2.4,16.3,6.8c9,9,9,23.7,0,32.7c-4.4,4.4-10.2,6.8-16.3,6.8c-6.2,0-12-2.4-16.3-6.8L61.9,11.9c-7-7-16.2-10.6-25.4-10.6c-9.2,0-18.4,3.5-25.4,10.5c-14,14-14,36.8,0,50.8c7,7,16.2,10.5,25.4,10.5c9.2,0,18.4-3.5,25.4-10.5l9.1-9.1l-9.1-9.1l-9.1,9.1c-4.4,4.4-10.2,6.8-16.3,6.8c-6.2,0-12-2.4-16.3-6.8c-9-9-9-23.7,0-32.7c4.4-4.4,10.2-6.8,16.3-6.8c6.2,0,11.9,2.4,16.3,6.8l41.7,41.7C101.6,69.7,110.8,73.3,120,73.3z"/>
+      </g>
+      <g>
+        <path class="ag-wm" d="M292,24.5c7.1,0,12.8,5.8,12.8,12.9c0,7.1-5.7,12.8-12.8,12.8c-7.1,0-12.9-5.7-12.9-12.8C279.1,30.2,284.9,24.5,292,24.5 M292,14.2c-12.8,0-23.1,10.4-23.1,23.1c0,12.7,10.3,23.1,23.1,23.1c12.8,0,23.1-10.3,23.1-23.1C315.1,24.6,304.7,14.2,292,14.2L292,14.2z"/>
+        <path class="ag-wm" d="M442.1,50.1v10.3h-35.9V14.2h10.3v35.9H442.1z"/>
+        <polygon class="ag-wm" points="311,60.4 324.8,60.4 336.6,45.9 348.2,60.4 361.8,60.4 343.3,37.4 361.8,14.2 348.2,14.2 336.6,28.8 324.7,14.2 311,14.2 329.7,37.2"/>
+        <path class="ag-wm" d="M220.7,45.6c0,9.2-7.3,14.8-14.3,14.8h-26.1V14.2h24.8c6.7,0,13.7,4.8,13.7,13.8c0,3.1-0.7,5.7-1.8,7.8C219.1,38.3,220.7,41.6,220.7,45.6z M190.6,32.2h13.9c2.1-0.1,4.1-1.8,4.1-4.4s-2-4.6-4.1-4.6h-13.9V32.2z M210.5,46c0-2.9-2.2-4.8-4.6-4.8h-15.4v9.6H206C208.5,50.8,210.5,48.7,210.5,46z"/>
+        <polygon class="ag-wm" points="401.1,24.5 401.1,14.2 365.1,14.2 365.1,60.4 401.1,60.4 401.1,50.1 375.4,50.1 375.4,41.8 394,41.8 394,32.8 375.4,32.8 375.4,24.5"/>
+        <path class="ag-wm" d="M255.3,44.4c5.7-2.4,9.8-8,9.8-14.5c0-8.7-7.2-15.7-16-15.7h-22.5v46.2h10.3V45.7h6.6l12.8,14.8h13.3L255.3,44.4z M249,35.4h-12.2V23.8H249c3.2,0,5.8,2.6,5.8,5.8S252.2,35.4,249,35.4z"/>
+      </g>
+    </svg>
+
+    <p class="auth-card__eyebrow">Propuesta Confidencial</p>
+    <h1 class="auth-card__headline">Acceso restringido</h1>
+    <p class="auth-card__subtitle">Esta propuesta es de uso confidencial. Por favor ingresa la clave de acceso proporcionada.</p>
+
+    <form class="auth-form" id="auth-form" novalidate>
+      <input
+        class="auth-input"
+        id="auth-input"
+        type="password"
+        placeholder="Clave de acceso"
+        autocomplete="current-password"
+        autocapitalize="none"
+        spellcheck="false"
+        aria-label="Clave de acceso"
+      />
+      <p class="auth-error" id="auth-error" role="alert" aria-live="polite">Clave incorrecta. Intenta nuevamente.</p>
+      <button type="submit" class="auth-btn">Acceder</button>
+    </form>
+
+  </div>
+  <p class="auth-screen-footer">Nicolás Pizarro &middot; Global Equestrian Brand Ambassador</p>
+</div>
+
+<!-- ============================================
+     PRELOADER
+     Shown after correct password while hero images load.
+     ============================================ -->
+<div id="preloader" aria-hidden="true">
+  <!-- Broxel infinity symbol only -->
+  <svg class="preloader__infinity" viewBox="0 0 145.4 74.6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor">
+    <rect x="65" y="39.1" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -11.6421 62.8888)" width="10.2" height="12.8"/>
+    <path d="M120,73.3c9.2,0,18.4-3.5,25.4-10.5c14-14,14-36.8,0-50.8c-7-7-16.2-10.5-25.4-10.5c-9.2,0-18.4,3.5-25.4,10.6L84,1.4H65.9l28.7,28.7l9.1-9.1c4.4-4.4,10.1-6.8,16.3-6.8c6.2,0,12,2.4,16.3,6.8c9,9,9,23.7,0,32.7c-4.4,4.4-10.2,6.8-16.3,6.8c-6.2,0-12-2.4-16.3-6.8L61.9,11.9c-7-7-16.2-10.6-25.4-10.6c-9.2,0-18.4,3.5-25.4,10.5c-14,14-14,36.8,0,50.8c7,7,16.2,10.5,25.4,10.5c9.2,0,18.4-3.5,25.4-10.5l9.1-9.1l-9.1-9.1l-9.1,9.1c-4.4,4.4-10.2,6.8-16.3,6.8c-6.2,0-12-2.4-16.3-6.8c-9-9-9-23.7,0-32.7c4.4-4.4,10.2-6.8,16.3-6.8c6.2,0,11.9,2.4,16.3,6.8l41.7,41.7C101.6,69.7,110.8,73.3,120,73.3z"/>
+  </svg>
+  <p class="preloader__text">Cargando propuesta…</p>
+</div>
+
+<!-- ============================================
+     PROPOSAL CONTENT
+     Hidden (opacity:0; visibility:hidden) until auth
+     passes and images have loaded.
+     ============================================ -->
+<div id="proposal-content">
 
 <!-- ============================================
      HEADER
@@ -864,7 +1160,7 @@ body::before{
     </button>
 
     <div class="carousel__quote">
-      <span class="carousel__quote-mark">"</span>
+      <span class="carousel__quote-mark">&ldquo;</span>
       <p class="carousel__quote-text" id="hero-quote">
         Representando a México<br>
         con pasión, disciplina y orgullo<br>
@@ -944,12 +1240,14 @@ body::before{
      ============================================ -->
 <footer class="site-footer">
   <p class="site-footer__quote" id="footer-quote">
-    "La marca correcta no patrocina al jinete; galopa con nosotros."
+    &ldquo;La marca correcta no patrocina al jinete; galopa con nosotros.&rdquo;
   </p>
   <div class="site-footer__attribution">
     Nicolás Pizarro · Temporada 2026 · Propuesta confidencial
   </div>
 </footer>
+
+</div><!-- /#proposal-content -->
 
 <!-- ============================================
      CONFIGURATION + LOGIC
@@ -1086,7 +1384,7 @@ const proposalData = {
     note: "<strong>Nota sobre la terraza:</strong> el espacio de terraza VIP es organizado y cubierto por Broxel en su totalidad. El concurso facilita la ubicación y permisos para la activación."
   },
 
-  footerQuote: '"La marca correcta no patrocina al jinete; galopa con nosotros."'
+  footerQuote: '“La marca correcta no patrocina al jinete; galopa con nosotros.”'
 };
 
 /* ============================================
@@ -1166,19 +1464,19 @@ const icons = {
 };
 
 /* ============================================
-   RENDER
+   RENDER FUNCTIONS
    ============================================ */
 function renderHeader(){
   document.getElementById('rider-name').textContent = proposalData.rider.name;
   document.getElementById('rider-title').textContent = proposalData.rider.title;
   document.getElementById('proposal-year').textContent = proposalData.sponsor.proposalYear;
-  document.title = `${proposalData.rider.name} · ${proposalData.rider.title} · ${proposalData.sponsor.name}`;
+  document.title = proposalData.rider.name + ' · ' + proposalData.rider.title + ' · ' + proposalData.sponsor.name;
 }
 
 function renderHeroQuote(){
-  const q = proposalData.heroQuote;
+  var q = proposalData.heroQuote;
   document.getElementById('hero-quote').innerHTML =
-    `${q.line1}<br>${q.line2}<br><em>${q.lineEmph}</em>`;
+    q.line1 + '<br>' + q.line2 + '<br><em>' + q.lineEmph + '</em>';
 }
 
 function renderFooterQuote(){
@@ -1186,34 +1484,34 @@ function renderFooterQuote(){
 }
 
 function renderPillars(){
-  document.getElementById('pillars').innerHTML = proposalData.pillars.map(p => `
-    <div class="pillar">
-      ${icons[p.icon] || ''}
-      <div class="pillar__content">
-        <h3 class="pillar__title">${p.title}<span class="pillar__title-rule"></span></h3>
-        <p class="pillar__text">${p.text}</p>
-      </div>
-    </div>
-  `).join('');
+  document.getElementById('pillars').innerHTML = proposalData.pillars.map(function(p){
+    return '<div class="pillar">' +
+      (icons[p.icon] || '') +
+      '<div class="pillar__content">' +
+        '<h3 class="pillar__title">' + p.title + '<span class="pillar__title-rule"></span></h3>' +
+        '<p class="pillar__text">' + p.text + '</p>' +
+      '</div>' +
+    '</div>';
+  }).join('');
 }
 
 function renderCarousel(){
-  const track = document.getElementById('carousel-track');
-  const dots = document.getElementById('carousel-dots');
-  const slides = proposalData.carousel.slides;
+  var track = document.getElementById('carousel-track');
+  var dots = document.getElementById('carousel-dots');
+  var slides = proposalData.carousel.slides;
 
-  track.innerHTML = slides.map((s, i) => `
-    <div class="carousel__slide ${i === 0 ? 'carousel__slide--active' : ''}"
-         style="background-image:url('${s.src}')"
-         role="img"
-         aria-label="${s.alt}"></div>
-  `).join('');
+  track.innerHTML = slides.map(function(s, i){
+    return '<div class="carousel__slide ' + (i === 0 ? 'carousel__slide--active' : '') + '"' +
+      ' style="background-image:url(\'' + s.src + '\')"' +
+      ' role="img"' +
+      ' aria-label="' + s.alt + '"></div>';
+  }).join('');
 
-  dots.innerHTML = slides.map((_, i) => `
-    <button class="carousel__dot ${i === 0 ? 'carousel__dot--active' : ''}"
-            data-index="${i}"
-            aria-label="Ir a imagen ${i + 1}"></button>
-  `).join('');
+  dots.innerHTML = slides.map(function(_, i){
+    return '<button class="carousel__dot ' + (i === 0 ? 'carousel__dot--active' : '') + '"' +
+      ' data-index="' + i + '"' +
+      ' aria-label="Ir a imagen ' + (i + 1) + '"></button>';
+  }).join('');
 
   if (slides.length <= 1){
     document.getElementById('carousel-prev').style.display = 'none';
@@ -1223,115 +1521,104 @@ function renderCarousel(){
 }
 
 function renderTiers(){
-  const grid = document.getElementById('tier-grid');
-  grid.innerHTML = proposalData.tiers.map(t => `
-    <div class="tier ${t.featured ? 'tier--featured' : ''}">
-      <div class="tier__header">
-        <div class="tier__name">${t.name}</div>
-        <div class="tier__tagline">${t.tagline}</div>
-      </div>
-      <div class="tier__price">${t.price}</div>
-      <div class="tier__price-unit">${t.priceUnit}</div>
-
-      <div class="tier__includes">${t.includes}</div>
-      <div class="tier__horse-package">
-        ${icons.horse}
-        <div class="tier__horse-text">${t.horsePackage.text}</div>
-      </div>
-
-      <ul class="tier__features">
-        ${t.features.map(f => `
-          <li class="tier__feature ${f.strong ? 'tier__feature--strong' : ''}">${f.text}</li>
-        `).join('')}
-      </ul>
-    </div>
-  `).join('');
+  var grid = document.getElementById('tier-grid');
+  grid.innerHTML = proposalData.tiers.map(function(t){
+    return '<div class="tier ' + (t.featured ? 'tier--featured' : '') + '">' +
+      '<div class="tier__header">' +
+        '<div class="tier__name">' + t.name + '</div>' +
+        '<div class="tier__tagline">' + t.tagline + '</div>' +
+      '</div>' +
+      '<div class="tier__price">' + t.price + '</div>' +
+      '<div class="tier__price-unit">' + t.priceUnit + '</div>' +
+      '<div class="tier__includes">' + t.includes + '</div>' +
+      '<div class="tier__horse-package">' +
+        icons.horse +
+        '<div class="tier__horse-text">' + t.horsePackage.text + '</div>' +
+      '</div>' +
+      '<ul class="tier__features">' +
+        t.features.map(function(f){
+          return '<li class="tier__feature ' + (f.strong ? 'tier__feature--strong' : '') + '">' + f.text + '</li>';
+        }).join('') +
+      '</ul>' +
+    '</div>';
+  }).join('');
 }
 
 function renderConcurso(){
-  const c = proposalData.concurso;
+  var c = proposalData.concurso;
   document.getElementById('concurso-description').textContent = c.description;
   document.getElementById('concurso-price').textContent = c.price;
   document.getElementById('concurso-price-unit').textContent = c.priceUnit;
   document.getElementById('concurso-note').innerHTML = c.note;
 
-  document.getElementById('concurso-benefits').innerHTML = c.benefits.map(b => `
-    <div class="concurso-benefit">
-      <div class="concurso-benefit__icon-wrap">
-        ${icons[b.icon] || ''}
-      </div>
-      <div>
-        <div class="concurso-benefit__title">${b.title}</div>
-        <p class="concurso-benefit__text">${b.text}</p>
-      </div>
-    </div>
-  `).join('');
+  document.getElementById('concurso-benefits').innerHTML = c.benefits.map(function(b){
+    return '<div class="concurso-benefit">' +
+      '<div class="concurso-benefit__icon-wrap">' + (icons[b.icon] || '') + '</div>' +
+      '<div>' +
+        '<div class="concurso-benefit__title">' + b.title + '</div>' +
+        '<p class="concurso-benefit__text">' + b.text + '</p>' +
+      '</div>' +
+    '</div>';
+  }).join('');
 }
 
 /* ============================================
-   CAROUSEL
+   CAROUSEL CONTROLLER
    ============================================ */
-class Carousel {
-  constructor(){
-    this.slides = document.querySelectorAll('.carousel__slide');
-    this.dots = document.querySelectorAll('.carousel__dot');
-    this.current = 0;
-    this.total = this.slides.length;
-    this.timer = null;
+function Carousel(){
+  this.slides = document.querySelectorAll('.carousel__slide');
+  this.dots = document.querySelectorAll('.carousel__dot');
+  this.current = 0;
+  this.total = this.slides.length;
+  this.timer = null;
 
-    if (this.total <= 1) return;
+  if (this.total <= 1) return;
 
-    document.getElementById('carousel-prev').addEventListener('click', () => this.prev());
-    document.getElementById('carousel-next').addEventListener('click', () => this.next());
-    this.dots.forEach(dot => {
-      dot.addEventListener('click', e => this.goTo(parseInt(e.target.dataset.index)));
-    });
+  var self = this;
 
-    const carousel = document.getElementById('carousel');
-    carousel.addEventListener('mouseenter', () => this.stop());
-    carousel.addEventListener('mouseleave', () => this.start());
+  document.getElementById('carousel-prev').addEventListener('click', function(){ self.prev(); });
+  document.getElementById('carousel-next').addEventListener('click', function(){ self.next(); });
+  this.dots.forEach(function(dot){
+    dot.addEventListener('click', function(e){ self.goTo(parseInt(e.target.dataset.index)); });
+  });
 
-    // Touch / swipe
-    let touchStartX = 0;
-    carousel.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
-    carousel.addEventListener('touchend', e => {
-      const dx = e.changedTouches[0].clientX - touchStartX;
-      if (Math.abs(dx) > 50){
-        if (dx > 0) this.prev(); else this.next();
-      }
-    });
+  var carousel = document.getElementById('carousel');
+  carousel.addEventListener('mouseenter', function(){ self.stop(); });
+  carousel.addEventListener('mouseleave', function(){ self.start(); });
 
-    if (proposalData.carousel.autoplay) this.start();
-  }
+  var touchStartX = 0;
+  carousel.addEventListener('touchstart', function(e){ touchStartX = e.touches[0].clientX; }, {passive:true});
+  carousel.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50){ if (dx > 0) self.prev(); else self.next(); }
+  });
 
-  goTo(index){
-    this.slides[this.current].classList.remove('carousel__slide--active');
-    this.dots[this.current].classList.remove('carousel__dot--active');
-    this.current = (index + this.total) % this.total;
-    this.slides[this.current].classList.add('carousel__slide--active');
-    this.dots[this.current].classList.add('carousel__dot--active');
-  }
-
-  next(){ this.goTo(this.current + 1); }
-  prev(){ this.goTo(this.current - 1); }
-
-  start(){
-    if (!proposalData.carousel.autoplay || this.total <= 1) return;
-    this.stop();
-    this.timer = setInterval(() => this.next(), proposalData.carousel.intervalMs);
-  }
-  stop(){
-    if (this.timer){
-      clearInterval(this.timer);
-      this.timer = null;
-    }
-  }
+  if (proposalData.carousel.autoplay) this.start();
 }
 
+Carousel.prototype.goTo = function(index){
+  this.slides[this.current].classList.remove('carousel__slide--active');
+  this.dots[this.current].classList.remove('carousel__dot--active');
+  this.current = (index + this.total) % this.total;
+  this.slides[this.current].classList.add('carousel__slide--active');
+  this.dots[this.current].classList.add('carousel__dot--active');
+};
+Carousel.prototype.next = function(){ this.goTo(this.current + 1); };
+Carousel.prototype.prev = function(){ this.goTo(this.current - 1); };
+Carousel.prototype.start = function(){
+  if (!proposalData.carousel.autoplay || this.total <= 1) return;
+  this.stop();
+  var self = this;
+  this.timer = setInterval(function(){ self.next(); }, proposalData.carousel.intervalMs);
+};
+Carousel.prototype.stop = function(){
+  if (this.timer){ clearInterval(this.timer); this.timer = null; }
+};
+
 /* ============================================
-   INIT
+   INIT — called only after auth passes
    ============================================ */
-document.addEventListener('DOMContentLoaded', () => {
+function initProposal(){
   renderHeader();
   renderHeroQuote();
   renderFooterQuote();
@@ -1340,7 +1627,104 @@ document.addEventListener('DOMContentLoaded', () => {
   renderTiers();
   renderConcurso();
   new Carousel();
-});
+}
+
+/* ============================================
+   AUTH GATE + PRELOADER
+   Script is at end of body; DOM is fully built.
+   ============================================ */
+(function(){
+  var PASSWORD    = 'Broxel';
+  var SESSION_KEY = 'broxel_auth';
+
+  var gate      = document.getElementById('auth-gate');
+  var preloader = document.getElementById('preloader');
+  var content   = document.getElementById('proposal-content');
+  var input     = document.getElementById('auth-input');
+  var errorEl   = document.getElementById('auth-error');
+  var form      = document.getElementById('auth-form');
+
+  /* Fade out preloader, fade in proposal */
+  function revealContent(){
+    preloader.classList.add('fade-out');
+    setTimeout(function(){
+      preloader.style.display = 'none';
+      content.classList.add('revealed');
+    }, 400);
+  }
+
+  /* Preload carousel images using new Image(), then call callback */
+  function preloadImages(callback){
+    preloader.classList.add('visible');
+
+    var slides = proposalData.carousel.slides;
+    var total  = slides.length;
+    var loaded = 0;
+    var done   = false;
+
+    if (total === 0){ callback(); return; }
+
+    /* Failsafe: show page after 5 s even if images stall */
+    var failsafe = setTimeout(function(){
+      if (!done){ done = true; callback(); }
+    }, 5000);
+
+    slides.forEach(function(slide){
+      var img = new Image();
+      img.onload = img.onerror = function(){
+        loaded++;
+        if (!done && loaded >= total){
+          done = true;
+          clearTimeout(failsafe);
+          callback();
+        }
+      };
+      img.src = slide.src;
+    });
+  }
+
+  /* Successful auth: fade gate → render → preload → reveal */
+  function unlock(){
+    sessionStorage.setItem(SESSION_KEY, '1');
+    gate.classList.add('fade-out');
+    setTimeout(function(){
+      gate.style.display = 'none';
+      initProposal();          /* render now; images queued by browser */
+      preloadImages(revealContent);
+    }, 600);
+  }
+
+  /* Wrong password: shake + error message + clear */
+  function showError(){
+    input.classList.remove('auth-input--shake');
+    void input.offsetWidth; /* force reflow to restart animation */
+    input.classList.add('auth-input--shake');
+    input.value = '';
+    errorEl.classList.add('auth-error--visible');
+    setTimeout(function(){ errorEl.classList.remove('auth-error--visible'); }, 3000);
+  }
+
+  function handleSubmit(e){
+    e.preventDefault();
+    if (input.value.trim() === PASSWORD){
+      unlock();
+    } else {
+      showError();
+    }
+  }
+
+  /* Already authenticated this session — skip gate */
+  if (sessionStorage.getItem(SESSION_KEY) === '1'){
+    gate.style.display = 'none';
+    initProposal();
+    content.classList.add('revealed');
+  } else {
+    form.addEventListener('submit', handleSubmit);
+    /* Auto-focus input for keyboard users */
+    input.focus();
+  }
+
+})();
 </script>
 
 </body>
