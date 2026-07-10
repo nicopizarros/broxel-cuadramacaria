@@ -1,14 +1,14 @@
-# Propuesta Broxel · Nicolás Pizarro
+# Propuesta Aeroméxico · Nicolás Pizarro
 
 One-pager HTML para la propuesta de patrocinio como Global Equestrian Brand Ambassador.
 
 ## Estructura
 
 ```
-broxel-proposal/
+aeromexico-proposal/
 ├── index.html                          ← archivo único editable
 ├── assets/
-│   └── broxel-logo.svg                 ← logo oficial Broxel
+│   └── aeromexico-logo.svg             ← logo oficial Aeroméxico
 └── images/
     ├── hero-01-action.jpg              ← saludo al público
     ├── hero-02-victory.jpg             ← vuelta de honor escarapela tricolor
@@ -19,12 +19,11 @@ broxel-proposal/
     └── hero-07.jpg                     ← celebración con casco en alto
 ```
 
-## Paleta oficial Broxel
+## Paleta oficial Aeroméxico
 
-Extraída directamente del archivo SVG de marca:
-
-- **Cyan primario:** `#00C1DE` (infinito y acentos)
-- **Navy primario:** `#003A5D` (wordmark)
+- **Azul primario:** `#0072CE` (mark de vuelo y acentos)
+- **Rojo de acento:** `#D52B1E` (detalle del mark)
+- **Navy primario:** `#0A1F44` (fondo y wordmark)
 
 ## Cómo editar
 
@@ -35,7 +34,7 @@ Todo el contenido vive en el objeto `proposalData` al inicio del bloque `<script
 ```js
 tiers: [
   {
-    name: "Silver",
+    name: "Platino",
     price: "$250,000",        ← edita aquí
     priceUnit: "MXN · anual · + IVA",
     ...
@@ -73,7 +72,7 @@ Cada tier acepta:
 
 - `name`, `tagline`, `price`, `priceUnit`
 - `featured: true` para destacar uno con badge "PAQUETE RECOMENDADO"
-- `horsePackage.text`: el bloque resaltado en cyan que muestra cuántos caballos incluye
+- `horsePackage.text`: el bloque resaltado en azul que muestra cuántos caballos incluye
 - `features`: lista de entregables con opción `strong: true` para resaltar
 
 ### Editar beneficios del Title Sponsor de Concurso
@@ -99,7 +98,7 @@ concurso: {
 ### Vercel (recomendado)
 
 ```bash
-cd broxel-proposal
+cd aeromexico-proposal
 vercel --prod
 ```
 
@@ -110,7 +109,7 @@ Arrastra la carpeta completa a https://app.netlify.com/drop
 ## Notas de diseño
 
 - Logo oficial SVG embebido inline (escalable, nítido a cualquier resolución)
-- Paleta extraída directamente del archivo de marca Broxel
+- Paleta oficial de marca Aeroméxico
 - Tipografía: Cormorant Garamond (display) + Inter Tight (body)
 - Responsive completo: 2 columnas en desktop, stack en mobile
 - Carrusel con autoplay, controles, dots, swipe en mobile, pausa en hover
