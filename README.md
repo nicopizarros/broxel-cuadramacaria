@@ -116,6 +116,12 @@ Arrastra la carpeta completa a https://app.netlify.com/drop
 - Sin em dashes en todo el texto
 - Imágenes optimizadas a 1920px, JPEG progresivo q82 (~3 MB total vs 92 MB originales)
 
+## Briefing de negocio deportivo
+
+`news/index.html` es una página independiente con el briefing del 19 de agosto de 2026 (cinco notas de Sports Business Journal, Sportico y SportBusiness). No comparte código con la propuesta: es un archivo único con sus propios estilos, derivados de la misma paleta Aeroméxico.
+
+Para agregar una edición nueva, duplica el archivo y cambia el masthead, los bloques `<article>` y la lista de fuentes del pie.
+
 ## Próximas iteraciones
 
 - Sección de calendario de concursos (fechas y sedes confirmadas)
