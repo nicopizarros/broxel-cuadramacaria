@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing 19 Agosto 2026</title>
+<meta name="description" content="Cinco historias de negocio deportivo del 19 de agosto de 2026: los cambios de medicion de Nielsen, el Gauge de junio, las perdidas de Enhanced Group y la nueva agencia NIL de Travis Kelce con Publicis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+/* ============================================================
+   BRIEFING · mesa de medicion
+   Paleta derivada del sistema Aeromexico del repositorio:
+   navy oficial #040C3E, azul #3D6FE0, rojo #D52B1E.
+   Tema unico y deliberado: pantalla de sala de datos.
+   ============================================================ */
+:root{
+  --ground:#060B1C;
+  --panel:#0B1631;
+  --panel-2:#101D3D;
+  --rule:rgba(150,175,220,.14);
+  --rule-strong:rgba(150,175,220,.28);
+  --ink:#EDF2FA;
+  --ink-2:#C3D2E6;
+  --ink-dim:#8FA3C2;
+  --ink-faint:#5D7093;
+  --accent:#4C7BE8;
+  --accent-soft:rgba(76,123,232,.14);
+  --neg:#E2564A;
+  --pos:#3FBF97;
+
+  --display:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --body:'Inter Tight',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
+
+  --measure:34rem;
+  --gutter:clamp(1.25rem,5vw,3rem);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--body);
+  font-weight:300;
+  font-size:clamp(1rem,.97rem + .16vw,1.075rem);
+  line-height:1.62;
+  overflow-x:hidden;
+}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(76,123,232,.4)}
+a:hover{border-bottom-color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:62rem;margin:0 auto;padding:0 var(--gutter)}
+.col{max-width:var(--measure)}
+
+.label{
+  font-family:var(--mono);
+  font-size:.68rem;
+  font-weight:500;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+
+/* ---------- MASTHEAD ---------- */
+.masthead{border-bottom:1px solid var(--rule-strong);padding:clamp(2.5rem,7vw,5rem) 0 0}
+.masthead__top{
+  display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;
+  align-items:baseline;justify-content:space-between;
+  padding-bottom:clamp(1.75rem,4vw,2.75rem);
+}
+.masthead__title{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:clamp(2.9rem,1.6rem + 5.4vw,6rem);
+  line-height:.94;
+  letter-spacing:-.015em;
+  text-wrap:balance;
+  padding-bottom:clamp(1rem,2vw,1.5rem);
+}
+.masthead__title em{font-style:italic;color:var(--ink-2)}
+.masthead__dek{
+  font-size:clamp(1.05rem,1rem + .35vw,1.3rem);
+  color:var(--ink-2);
+  font-weight:300;
+  max-width:44rem;
+  padding-bottom:clamp(2rem,4vw,3rem);
+  text-wrap:pretty;
+}
+
+/* ---------- TIRA DE LECTURAS ---------- */
+.readout{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));
+  border-top:1px solid var(--rule);
+  border-left:1px solid var(--rule);
+}
+.readout > div{
+  border-right:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  padding:1.1rem 1.15rem 1.25rem;
+  display:flex;flex-direction:column;gap:.3rem;
+  background:linear-gradient(180deg,rgba(16,29,61,.5),rgba(16,29,61,0));
+}
+.readout__fig{
+  font-family:var(--mono);font-variant-numeric:tabular-nums;
+  font-size:clamp(1.5rem,1.2rem + 1.1vw,2rem);
+  font-weight:500;line-height:1;letter-spacing:-.02em;
+}
+.readout__fig.is-neg{color:var(--neg)}
+.readout__fig.is-pos{color:var(--pos)}
+.readout__cap{font-size:.82rem;color:var(--ink-dim);line-height:1.35}
+.masthead .readout{border-bottom:0}
+.masthead .readout > div{border-bottom:0}
+
+/* ---------- HILO ---------- */
+.thread{
+  padding:clamp(2rem,4vw,3rem) 0;
+  border-bottom:1px solid var(--rule);
+}
+.thread p{
+  font-family:var(--display);
+  font-size:clamp(1.35rem,1.15rem + .8vw,1.85rem);
+  line-height:1.34;
+  font-weight:300;
+  color:var(--ink-2);
+  max-width:46rem;
+  text-wrap:pretty;
+}
+.thread strong{color:var(--ink);font-weight:500}
+
+/* ---------- SECCIONES ---------- */
+.beat{
+  display:flex;align-items:center;gap:1rem;
+  padding:clamp(3rem,6vw,4.5rem) 0 0;
+}
+.beat span{white-space:nowrap}
+.beat::after{content:"";flex:1;height:1px;background:var(--rule)}
+
+/* ---------- ARTICULO ---------- */
+article{padding:clamp(1.5rem,3vw,2.25rem) 0 clamp(2.5rem,5vw,3.5rem);border-bottom:1px solid var(--rule)}
+.meta{display:flex;flex-wrap:wrap;gap:.4rem .9rem;align-items:center;padding-bottom:.9rem}
+.meta__src{color:var(--accent);letter-spacing:.12em}
+.hed{
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(1.8rem,1.35rem + 1.9vw,2.9rem);
+  line-height:1.06;
+  letter-spacing:-.012em;
+  max-width:24ch;
+  text-wrap:balance;
+  padding-bottom:.85rem;
+}
+.dek{
+  font-size:clamp(1.05rem,1rem + .3vw,1.2rem);
+  color:var(--ink-2);
+  max-width:var(--measure);
+  padding-bottom:1.75rem;
+  text-wrap:pretty;
+}
+.body p{max-width:var(--measure);color:var(--ink-2)}
+.body p + p{padding-top:1rem}
+.body strong{color:var(--ink);font-weight:500}
+.body .num{color:var(--ink);font-weight:500;font-size:.94em}
+article .readout{margin-bottom:1.75rem}
+
+.sowhat{
+  display:flex;gap:1rem;
+  max-width:var(--measure);
+  margin-top:1.75rem;
+  padding:1rem 1.2rem;
+  background:var(--accent-soft);
+  border-left:2px solid var(--accent);
+}
+.sowhat p{font-size:.97rem;color:var(--ink-2)}
+.sowhat .label{color:var(--accent);padding-bottom:.25rem;display:block}
+
+.source-link{display:inline-block;margin-top:1.5rem;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em}
+
+/* ---------- BARRA DE PARTICIPACION ---------- */
+.share{max-width:var(--measure);margin:1.75rem 0 .5rem}
+.share__bar{display:flex;height:2.6rem;border:1px solid var(--rule-strong);overflow:hidden}
+.share__seg{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.74rem;font-weight:500;color:var(--ground);letter-spacing:.02em}
+.share__seg:not(:last-child){border-right:1px solid var(--ground)}
+.s-stream{background:var(--accent)}
+.s-bcast{background:#9FBBF2}
+.s-cable{background:#4E6592;color:var(--ink)}
+.s-other{background:#1D2B4E;color:var(--ink-dim)}
+.share__key{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;padding-top:.7rem}
+.share__key span{display:flex;align-items:center;gap:.45rem;font-family:var(--mono);font-size:.72rem;color:var(--ink-dim)}
+.share__key i{width:.7rem;height:.7rem;display:block}
+.share__note{padding-top:.7rem;font-size:.86rem;color:var(--ink-faint);max-width:var(--measure)}
+
+/* ---------- PIE ---------- */
+footer{padding:clamp(3rem,6vw,4.5rem) 0 clamp(4rem,8vw,6rem)}
+footer h2{font-family:var(--display);font-weight:400;font-size:1.9rem;padding-bottom:1rem}
+footer p{max-width:var(--measure);color:var(--ink-dim);font-size:.94rem}
+footer p + p{padding-top:.8rem}
+footer ul{list-style:none;padding-top:1.25rem;display:grid;gap:.55rem;max-width:52rem}
+footer li{font-family:var(--mono);font-size:.8rem;color:var(--ink-faint);line-height:1.5}
+footer li a{border-bottom-color:rgba(76,123,232,.28)}
+.colophon{padding-top:2.5rem;font-family:var(--mono);font-size:.72rem;color:var(--ink-faint);letter-spacing:.06em}
+
+/* ---------- RAIL DE DATOS EN PANTALLA ANCHA ---------- */
+@media (min-width:1040px){
+  article{
+    display:grid;
+    grid-template-columns:minmax(0,var(--measure)) minmax(11rem,1fr);
+    column-gap:clamp(2.5rem,4vw,4rem);
+    align-items:start;
+  }
+  article > *{grid-column:1}
+  article > .readout{
+    grid-column:2;
+    grid-row:1 / span 99;
+    grid-template-columns:1fr;
+    position:sticky;
+    top:2rem;
+    margin-bottom:0;
+  }
+}
+
+@media (prefers-reduced-motion:no-preference){
+  article,.thread,.readout>div{animation:rise .5s cubic-bezier(.2,.7,.3,1) both}
+  @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+}
+@media print{
+  body{background:#fff;color:#111}
+  .readout>div{background:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="masthead__top">
+      <span class="label">Briefing de negocio deportivo</span>
+      <span class="label num">Miercoles 19 de agosto de 2026 · Edicion 01</span>
+    </div>
+    <h1 class="masthead__title">La temporada se mide<br><em>otra vez</em> distinto</h1>
+    <p class="masthead__dek">Cinco historias del 19 de agosto. Nielsen vuelve a mover la regla con la que se cuenta la audiencia deportiva, el Mundial deja la primera subida del broadcast en la historia del Gauge, Enhanced Group paga la factura de su estreno y Travis Kelce entra al mercado NIL con Publicis detras.</p>
+    <div class="readout">
+      <div>
+        <span class="readout__fig">19.8%</span>
+        <span class="readout__cap">del tiempo de TV en junio fue broadcast</span>
+      </div>
+      <div>
+        <span class="readout__fig is-pos">+118%</span>
+        <span class="readout__cap">consumo de deporte en broadcast</span>
+      </div>
+      <div>
+        <span class="readout__fig">+4.19%</span>
+        <span class="readout__cap">lift medio del nuevo co-viewing en el piloto</span>
+      </div>
+      <div>
+        <span class="readout__fig is-neg">-61.9M</span>
+        <span class="readout__cap">perdida neta de Enhanced Group en el Q2</span>
+      </div>
+      <div>
+        <span class="readout__fig">45,000</span>
+        <span class="readout__cap">atletas de Division I en la red de TEKTA</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="thread">
+    <p>Tres de las cinco historias del dia son la misma historia: <strong>quien controla la regla controla el precio</strong>. Nielsen aplica siete cambios de metodologia el 31 de agosto, justo antes de que arranquen la NFL y el college football, y la industria ya discute si el ajuste es una correccion tecnica o una revaluacion del inventario deportivo.</p>
+  </section>
+
+  <div class="beat"><span class="label">Medicion</span></div>
+
+  <article>
+    <div class="meta">
+      <span class="label meta__src">Sports Business Journal</span>
+      <span class="label num">19 ago 2026</span>
+    </div>
+    <h2 class="hed">Nielsen making further metric changes ahead of fall sports season</h2>
+    <p class="dek">Siete ajustes de metodologia entran en vigor el 31 de agosto, a dias del arranque de la temporada de futbol americano. El mas relevante para el deporte: el co-viewing pasa a medirse de forma pasiva.</p>
+
+    <div class="readout">
+      <div><span class="readout__fig">7</span><span class="readout__cap">cambios de metodologia anunciados</span></div>
+      <div><span class="readout__fig num">31 ago</span><span class="readout__cap">fecha de entrada en vigor</span></div>
+      <div><span class="readout__fig">40M</span><span class="readout__cap">hogares Big Data + Panel afectados</span></div>
+      <div><span class="readout__fig">15,000</span><span class="readout__cap">hogares con set meter</span></div>
+    </div>
+
+    <div class="body">
+      <p>El cambio central es el <strong>co-viewing pasivo</strong>. Nielsen deja de depender de que el panelista se registre manualmente y pasa a usar un dispositivo de muneca, parecido a un smartwatch, que capta el audio del contenido que suena en la sala. Quien esta viendo el partido queda contado aunque nunca haya tocado un boton, que es exactamente el escenario del deporte en vivo: grupos, bares, casas ajenas.</p>
+      <p>Los otros seis ajustes son menos vistosos y igual de consecuentes. El <strong>Latency Adjusted DASH UE</strong> corrige el desfase temporal de las estimaciones de universo. Una mejora del modelo <strong>HDAM</strong> evita que la asignacion demografica del hogar se incline artificialmente hacia los residentes mayores. El <strong>weighting integrado</strong> recombina panel y big data para dar resultados mas estables entre demos. Se suman una metodologia hispana que cruza la American Community Survey con la National Hispanic Enumeration Survey, un ajuste de ACR monitored tuning y una correccion de agrupacion de dispositivos por hogar en uno de los proveedores de ACR.</p>
+      <p>El Media Rating Council superviso la negociacion de las actualizaciones. Karthik Rao, CEO de Nielsen, resumio el paquete asi: <em>"We are relentless in our pursuit of delivering the most accurate measurement possible for our media and advertising clients."</em></p>
+    </div>
+
+    <div class="sowhat">
+      <p><span class="label">Por que importa</span>Toda negociacion de derechos, todo make good y todo CPM de la temporada 2026-27 se liquida contra estos numeros. Cambiar la regla el 31 de agosto significa que el primer domingo de NFL ya se vende en la moneda nueva.</p>
+    </div>
+
+    <a class="source-link" href="https://www.sportsbusinessjournal.com/Articles/2026/08/19/nielsen-making-further-metric-changes-ahead-of-fall-sports-season/">Leer en Sports Business Journal &rarr;</a>
+  </article>
+
+  <article>
+    <div class="meta">
+      <span class="label meta__src">Sportico</span>
+      <span class="label num">19 ago 2026</span>
+    </div>
+    <h2 class="hed">Latest Nielsen changes won't lead to another huge sports ratings boom</h2>
+    <p class="dek">La contraparte del anuncio. Es el tercer cambio de medicion en menos de dos anos, pero el efecto sobre los ratings deportivos sera de un digito, no del orden que trajo Big Data + Panel.</p>
+
+    <div class="readout">
+      <div><span class="readout__fig is-pos">+4.19%</span><span class="readout__cap">lift medio en el piloto de febrero</span></div>
+      <div><span class="readout__fig">10-15%</span><span class="readout__cap">lift que trajo Big Data + Panel en 2025</span></div>
+      <div><span class="readout__fig">3.º</span><span class="readout__cap">cambio de medicion en menos de dos anos</span></div>
+      <div><span class="readout__fig num">2027</span><span class="readout__cap">antes no habra comparativas interanuales limpias</span></div>
+    </div>
+
+    <div class="body">
+      <p>El piloto de febrero corrio sobre los eventos mas grandes del calendario: Super Bowl LX, los Juegos de Invierno y la Daytona 500. El co-viewing ampliado produjo un <strong>alza media de 4.19%</strong>. Suficiente para que el Super Bowl LX hubiera marcado un record de television en Estados Unidos bajo la metodologia nueva, y muy lejos del 10% a 15% que levanto la llegada de Big Data + Panel en septiembre de 2025.</p>
+      <p>Fuera de los eventos marquee el efecto se aplana. Un ejecutivo de Nielsen lo puso en terminos de compensaciones: <em>"There's going to be a lot of offsets, but in most cases, we're seeing flat to slight increases."</em> El streaming pierde algo por el ajuste de universos, el cable queda plano o ligeramente arriba, el deporte en vivo se lleva la mayor parte del beneficio.</p>
+      <p>La NFL llevaba tiempo empujando el tema. Paul Ballew, su director de datos, sostuvo que con el factor de co-viewing de 2.4 el Super Bowl quedaba subcontado en un rango de 15 a 20 millones de espectadores. Dentro de la liga la lectura sigue siendo que la medicion <strong>es todavia trabajo en curso</strong>. NASCAR, por su parte, freno su adopcion plena de Big Data + Panel a la espera precisamente de este co-viewing ampliado.</p>
+      <p>El costo escondido: con tres metodologias distintas en menos de dos anos, las comparativas interanuales limpias no vuelven hasta finales de 2027.</p>
+    </div>
+
+    <div class="sowhat">
+      <p><span class="label">Por que importa</span>Un lift de 4% no reabre negociaciones de derechos, pero si mueve el debate. Quien venda esta temporada contra el rating del ano pasado esta comparando dos monedas distintas.</p>
+    </div>
+
+    <a class="source-link" href="https://www.sportico.com/business/media/2026/nielsen-co-viewing-tweaks-sports-tv-ratings-1234942338/">Leer en Sportico &rarr;</a>
+  </article>
+
+  <div class="beat"><span class="label">Audiencias</span></div>
+
+  <article>
+    <div class="meta">
+      <span class="label meta__src">Sports Business Journal</span>
+      <span class="label num">19 ago 2026</span>
+    </div>
+    <h2 class="hed">World Cup, NBA Finals lift broadcast viewing to 19.8% of June TV time</h2>
+    <p class="dek">El Gauge de junio deja el primer repunte del broadcast en un mes de junio desde que Nielsen publica el reporte en 2021. El deporte lo explica entero.</p>
+
+    <div class="readout">
+      <div><span class="readout__fig">19.8%</span><span class="readout__cap">share de broadcast, +0.6 pts vs mayo</span></div>
+      <div><span class="readout__fig is-pos">+118%</span><span class="readout__cap">consumo de deporte en broadcast</span></div>
+      <div><span class="readout__fig">84 mil M</span><span class="readout__cap">minutos de Mundial en FOX, FS1 y Telemundo</span></div>
+      <div><span class="readout__fig is-neg">-10%</span><span class="readout__cap">consumo de deporte en cable</span></div>
+    </div>
+
+    <div class="share">
+      <div class="share__bar" role="img" aria-label="Reparto del tiempo de TV en junio de 2026: streaming 48.5 por ciento, broadcast 19.8 por ciento, cable 19.5 por ciento, otros 12.2 por ciento">
+        <div class="share__seg s-stream" style="flex:48.5">48.5</div>
+        <div class="share__seg s-bcast" style="flex:19.8">19.8</div>
+        <div class="share__seg s-cable" style="flex:19.5">19.5</div>
+        <div class="share__seg s-other" style="flex:12.2">12.2</div>
+      </div>
+      <div class="share__key">
+        <span><i class="s-stream"></i>Streaming 48.5% (-0.1 pts)</span>
+        <span><i class="s-bcast"></i>Broadcast 19.8% (+0.6 pts)</span>
+        <span><i class="s-cable"></i>Cable 19.5% (-0.9 pts)</span>
+        <span><i class="s-other"></i>Otros 12.2%</span>
+      </div>
+      <p class="share__note">Reparto del tiempo total de television en junio de 2026 segun The Gauge de Nielsen.</p>
+    </div>
+
+    <div class="body">
+      <p>El Mundial hizo casi todo el trabajo. <strong>84 mil millones de minutos</strong> repartidos entre FOX, Fox Sports 1 y Telemundo empujaron las afiliadas de FOX un <span class="num">73%</span>, a Fox Sports 1 un <span class="num">232%</span> y a Telemundo un <span class="num">143%</span>. En streaming, Peacock subio <span class="num">34%</span> en total y cerca de <span class="num">200%</span> entre audiencia hispana.</p>
+      <p>La otra pata fue la NBA. Las Finales entre San Antonio y Nueva York se resolvieron en cinco juegos con titulo para los Knicks y dejaron a las afiliadas de ABC <span class="num">15%</span> arriba en el mes. Cada juego fue el programa de broadcast mas visto de su dia, y los juegos 3, 4 y 5 fueron los tres programas mas vistos del intervalo, con <strong>mas de 20 millones de espectadores cada uno</strong>.</p>
+      <p>El cable pago la cuenta: cayo a <span class="num">19.5%</span> del tiempo total, nueve decimas menos que en mayo, arrastrado por la ausencia de playoffs de NBA y NHL que hundio su consumo deportivo un <span class="num">10%</span>. En el reparto por distribuidor, YouTube sigue arriba con <span class="num">13.8%</span>, seguido de Disney con <span class="num">9.6%</span>, NBCU-Versant con <span class="num">9.1%</span> y FOX con <span class="num">7.4%</span>. El titulo mas consumido del mes no fue deporte: <em>Love Island USA</em> en Peacock, con <span class="num">6.8 mil millones</span> de minutos.</p>
+    </div>
+
+    <div class="sowhat">
+      <p><span class="label">Por que importa</span>El broadcast no se recupero, se lo prestaron. La leccion para cualquier marca es que el evento global sigue siendo el unico mecanismo capaz de mover la aguja de una categoria entera en un mes.</p>
+    </div>
+
+    <a class="source-link" href="https://www.sportsbusinessjournal.com/Articles/2026/08/19/world-cup-nba-finals-lift-broadcast-viewing-to-198-of-june-tv-time/">Leer en Sports Business Journal &rarr;</a>
+  </article>
+
+  <div class="beat"><span class="label">Finanzas</span></div>
+
+  <article>
+    <div class="meta">
+      <span class="label meta__src">SportBusiness</span>
+      <span class="label num">19 ago 2026</span>
+    </div>
+    <h2 class="hed">Enhanced Games debut prompts $62m group loss</h2>
+    <p class="dek">El estreno de mayo en Las Vegas costo mas de lo que ingreso por un factor de tres. La empresa reorienta el modelo hacia suplementos, telesalud y eventos chicos.</p>
+
+    <div class="readout">
+      <div><span class="readout__fig">$17.7M</span><span class="readout__cap">ingresos del Q2, casi todo patrocinio</span></div>
+      <div><span class="readout__fig is-neg">-$61.9M</span><span class="readout__cap">perdida neta del trimestre</span></div>
+      <div><span class="readout__fig is-neg">-$42.7M</span><span class="readout__cap">perdida de EBITDA ajustado</span></div>
+      <div><span class="readout__fig">$19.6M</span><span class="readout__cap">caja al 30 de junio</span></div>
+    </div>
+
+    <div class="body">
+      <p>Fue el primer trimestre con ingresos de la compania despues de salir a bolsa en mayo via SPAC, y tambien el primero con la factura completa a la vista. <strong>52 millones de dolares</strong> se fueron solo en costos de juegos, atletas y operacion del evento. A eso se sumaron los gastos de la fusion con el vehiculo de adquisicion y un ensayo clinico de uno de sus suplementos.</p>
+      <p>Del lado del ingreso, la inaugural Enhanced Games aseguro <strong>32 millones de dolares</strong> en valor contratado de patrocinio con <span class="num">10</span> marcas. El consumo de caja operativa en el semestre fue de <span class="num">44 millones</span>, y quedaron <span class="num">19.6 millones</span> en caja al cierre de junio.</p>
+      <p>La respuesta es un giro de modelo. En lugar de repetir el arena a medida al aire libre del Resorts World Las Vegas, la compania apuesta por los <strong>Enhanced Breakers</strong>, eventos mas chicos y frecuentes donde los atletas intentan romper records en formato intimo, y por <strong>Live Enhanced</strong>, su plataforma directa al consumidor con once productos de receta. Maximilian Martin, CEO del grupo, defendio el arco: <em>"Six months ago, Enhanced was a privately held startup with a bold idea. Today, we are a globally recognized sports brand."</em></p>
+    </div>
+
+    <div class="sowhat">
+      <p><span class="label">Por que importa</span>Es la primera lectura auditada de cuanto cuesta lanzar una propiedad deportiva desde cero en 2026. Reconocimiento de marca global por 62 millones en un trimestre, y un pivote a producto antes del segundo evento.</p>
+    </div>
+
+    <a class="source-link" href="https://www.sportbusiness.com/news/enhanced-games-debut-prompts-62m-group-loss/">Leer en SportBusiness &rarr;</a>
+  </article>
+
+  <div class="beat"><span class="label">Marketing</span></div>
+
+  <article>
+    <div class="meta">
+      <span class="label meta__src">SportBusiness</span>
+      <span class="label num">19 ago 2026</span>
+    </div>
+    <h2 class="hed">Kelce fronts new Publicis-backed NIL agency</h2>
+    <p class="dek">TEKTA junta a Publicis Sports, Travis Kelce y 3 Arts Sports para vender el mercado NIL universitario como un solo inventario en vez de miles de negociaciones sueltas.</p>
+
+    <div class="readout">
+      <div><span class="readout__fig">45,000</span><span class="readout__cap">atletas de Division I en la red</span></div>
+      <div><span class="readout__fig">68</span><span class="readout__cap">universidades Power Four</span></div>
+      <div><span class="readout__fig">$4.5 mil M</span><span class="readout__cap">tamano estimado del mercado NIL</span></div>
+      <div><span class="readout__fig is-pos">50-70%</span><span class="readout__cap">mas rapido al mercado, segun la compania</span></div>
+    </div>
+
+    <div class="body">
+      <p>Lanzada el 18 de agosto en Nueva York, TEKTA se presenta como una oferta de consultoria y activacion de nombre, imagen y semejanza: identificar, activar y medir acuerdos entre marcas, atletas universitarios y universidades. El reparto de roles es explicito. <strong>Publicis Sports</strong> aporta la relacion con anunciantes, la inteligencia de audiencia y la medicion. <strong>Kelce</strong> entra como asesor. <strong>3 Arts Sports</strong> opera, con sus relaciones en universidades, conferencias y atletismo colegial.</p>
+      <p>El flujo previsto es de una sola direccion: Publicis Sports desarrolla la estrategia del cliente y la pasa a TEKTA, que identifica atletas y escuelas que encajan con el objetivo de marca. Un grupo selecto de clientes de la agencia obtiene acceso a la red.</p>
+      <p>Suzy Deering, CEO de Publicis Sports, enmarco la alianza como una suma de fortalezas. Aaron y Andre Eanes, co-directores de 3 Arts Sports, fueron mas directos: <em>"The sports industry doesn't need more competition, it needs more connection."</em> Kelce lo puso en terminos de friccion: simplificar el proceso es lo que va a permitir que todos aprovechen el potencial real de estos acuerdos.</p>
+    </div>
+
+    <div class="sowhat">
+      <p><span class="label">Por que importa</span>El NIL deja de ser un mercado de agentes sueltos y empieza a comportarse como inventario de medios, comprable desde un holding publicitario con medicion incluida. Ese es el paso que profesionaliza una categoria.</p>
+    </div>
+
+    <a class="source-link" href="https://www.sportbusiness.com/news/kelce-fronts-new-publicis-backed-nil-agency/">Leer en SportBusiness &rarr;</a>
+  </article>
+
+  <footer>
+    <h2>Fuentes y verificacion</h2>
+    <p>Las cinco notas enlazadas arriba son las piezas originales. Los sitios de Sports Business Journal, Sportico y SportBusiness bloquean el acceso automatizado, asi que cada cifra de este briefing fue contrastada contra documentos primarios y cobertura abierta del mismo hecho.</p>
+    <ul>
+      <li><a href="https://www.nielsen.com/news-center/2026/nielsen-incorporates-new-enhancements-to-improve-its-data-measurement-leading-into-the-new-fall-tv-season/">Nielsen · Nuevas mejoras de medicion, vigentes el 31 de agosto de 2026</a></li>
+      <li><a href="https://www.nielsen.com/news-center/2026/fox-and-nbcuniversal-score-with-fifa-world-cup-2026-success-in-nielsens-june-gauge-reports/">Nielsen · The Gauge de junio de 2026</a></li>
+      <li><a href="https://frontofficesports.com/nielsen-prepares-another-major-shake-up-in-sports-tv-ratings/">Front Office Sports · Piloto de co-viewing y postura de la NFL</a></li>
+      <li><a href="https://www.sportsmediawatch.com/2026/08/nielsen-passive-co-viewing-data-measurement/">Sports Media Watch · Detalle de co-viewing pasivo y universos DASH</a></li>
+      <li><a href="https://www.businesswire.com/news/home/20260813331607/en/Enhanced-Group-Inc.-Reports-Second-Quarter-2026-Results">Businesswire · Resultados del segundo trimestre de Enhanced Group</a></li>
+      <li><a href="https://www.publicisgroupe.com/en/news/press-releases/publicis-sports-and-travis-kelce-s-tekta-join-forces-to-reimagine-the-future-of-nil-marketing">Publicis Groupe · Comunicado de lanzamiento de TEKTA</a></li>
+    </ul>
+    <p class="colophon">Briefing 19 agosto 2026 · Compilado el 20 de agosto de 2026</p>
+  </footer>
+
+</div>
+</body>
+</html>
